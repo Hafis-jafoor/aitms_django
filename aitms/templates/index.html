@@ -1,0 +1,809 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-dialog-centered">
+      <!-- <div class="modal-content" style="background: url(assets/img/1.jpg);"> -->
+        <div class="modal-content" style="background: url('/static/assets/img/1.jpg');">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel" style="font-family: 'Times New Roman', Times, serif;">Welcome to AITMS World</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" >
+          <!-- Contact Form -->
+          <form id="contactForm" action="" method="post">
+            <div class="row g-3">
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="name" placeholder="Your Name" required name="name">
+                        <label for="name">Your Name</label>
+                        <small id="name-error" style="color: red; display: none;" class="mt-1">Name should contain only alphabets</small>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" placeholder="Your Email" required name="email">
+                        <label for="email">Your Email</label>
+                        <small id="email-error" style="color: red; display: none;" class="mt-1">Please enter a valid email address</small>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="tel" class="form-control" id="phone" placeholder="Your Phone Number" required name="phone">
+                        <label for="phone">Your Phone Number</label>
+                        <small id="phone-error" style="color: red; display: none;" class="mt-1">Please enter a valid 10-digit phone number</small>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="subject" placeholder="Subject" required name="subject">
+                        <label for="subject">Subject</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 200px" required name="message"></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <input class="btn btn-primary py-3 px-5 jiggle-effect" type="submit" value="Send Message">
+                </div>
+            </div>
+        </form>
+        <!-- Message to display on successful form submission -->
+        <div id="form-success-message" style="display: none; color: white; font-weight: bold;">
+          Form submitted successfully!
+        </div>
+        
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                var nameInput = document.getElementById('name').value.trim();
+                var emailInput = document.getElementById('email').value.trim();
+                var phoneInput = document.getElementById('phone').value.trim();
+                var subjectInput = document.getElementById('subject').value.trim();
+                var messageInput = document.getElementById('message').value.trim();
+        
+                var nameRegex = /^[a-zA-Z ]+$/;
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                var phoneRegex = /^[0-9]{10}$/;
+        
+                var valid = true;
+        
+                if (!nameRegex.test(nameInput)) {
+                    document.getElementById('name-error').style.display = 'block';
+                    valid = false;
+                } else {
+                    document.getElementById('name-error').style.display = 'none';
+                }
+        
+                if (!emailRegex.test(emailInput)) {
+                    document.getElementById('email-error').style.display = 'block';
+                    valid = false;
+                } else {
+                    document.getElementById('email-error').style.display = 'none';
+                }
+        
+                if (!phoneRegex.test(phoneInput)) {
+                    document.getElementById('phone-error').style.display = 'block';
+                    valid = false;
+                } else {
+                    document.getElementById('phone-error').style.display = 'none';
+                }
+        
+                if (valid) {
+                    document.getElementById('form-success-message').style.display = 'block'; // Show success message
+                    event.preventDefault(); // Prevent form submission
+                } else {
+                    event.preventDefault(); // Prevent form submission
+                }
+            });
+  
+            // Show the modal when the page loads
+            window.addEventListener('DOMContentLoaded', function() {
+              var myModal = new bootstrap.Modal(document.getElementById('contactModal'));
+              myModal.show();
+            });
+        </script>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Latest News Section -->
+  <div class="latest-news-section position-fixed bottom-0 end-0 p-3" style="max-width: 800px; display: none; z-index: 1;">
+    <div class="card" style="background: linear-gradient(#03649b, black);">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title m-0 text-white" style="font-family: 'Times New Roman', Times, serif;">Latest News</h5>
+        <button type="button" class="custom-close-button" onclick="closeLatestNews()">X</button>
+      </div>
+      <div class="card-body" style="font-family: 'Times New Roman', Times, serif;">
+        <div class="container">
+          <div class="row mb-2">
+            <div class="col-lg-12">
+              <div class="card mb-2">
+                <div class="card-body border-dark" style="background: url('/static/assets/img/contact-bg.png')">
+                  <h5 class="card-title">News 1</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-lg-6">
+              <div class="card mb-2">
+                <div class="card-body" style="background: url('/static/assets/img/contact-bg.png')">
+                  <h5 class="card-title">News 2</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-body" style="background: url('/static/assets/img/contact-bg.png')">
+                  <h5 class="card-title">News 3</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Sample News Items -->
+      </div>
+    </div>
+  </div>
+  <!-- End Latest News Section -->
+  
+  <!-- JavaScript to show and hide the latest news section -->
+  <script>
+    function closeLatestNews() {
+      document.querySelector('.latest-news-section').style.display = 'none';
+    }
+  
+    // Show the latest news section after a delay (e.g., 5 seconds)
+    setTimeout(function() {
+      document.querySelector('.latest-news-section').style.display = 'block';
+    }, 5000); // 5000 milliseconds = 5 seconds
+  </script>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-4">
+          <h2 data-aos="fade-up" style="font-family: 'Times New Roman', Times, serif;">Integrated Degree Program</h2>
+          <blockquote data-aos="fade-up" data-aos-delay="100" >
+            <ul>
+              <li>In Aviation</li>
+              <li>Logistics</li>
+              <li>IT Cyber Security & Commerce</li>
+            </ul>
+          </blockquote>
+        
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            <a href="" class="btn-get-started jiggle">Online Learning</a>
+            <a href="parscore.html" class="btn-watch-video d-flex align-items-center jiggle">Parscore Scholorship</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= FIND OUT MORE Section ======= -->
+    <section id="call-to-action" class="call-to-action mt-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <h3 style="font-family: 'Times New Roman', Times, serif;">AERO INSTITUTE OF TECHNOLOGY & MANAGEMENT STUDIES</h3>
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif">AITMS is a business school that has changed the rules, so does our way of learning. While traditional colleges tend to offer a general curriculum, AITMS offers the opportunity for our students to specialize and further develop their expertise in Aviation, Logistics, IT & Commerce.</p>
+            <a class="cta-btn jiggle" href="#" style="font-family: 'Times New Roman', Times, serif;">FIND OUT MORE</a>
+          </div>
+        </div>
+      </div>
+    </section><!-- End FIND OUT MORE Section -->
+
+    <!-- ======= What Sets Us Apart ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2 style="font-family: 'Times New Roman', Times, serif;">What Sets Us Apart</h2>
+        </div>
+        <div class="row g-0" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-xl-5 img-bg" style="background-image: url('/static/assets/img/why-us-bg.jpg')"></div>
+          <div class="col-xl-7 slides  position-relative">
+            <div class="slides-1 swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Industry-Leading Training</h3>
+                    <p>Our institute offers comprehensive and industry-leading training programs that prepare students for successful careers in aviation.</p>
+                  </div>
+                </div><!-- End slide item -->
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">State-of-the-Art Facilities</h3>
+                    <p>We pride ourselves on our state-of-the-art facilities, including cutting-edge simulators and training aircraft, providing students with a hands-on learning experience.</p>
+                  </div>
+                </div><!-- End slide item -->
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Experienced Instructors</h3>
+                    <p>Our team of experienced instructors brings a wealth of knowledge and expertise to the classroom, ensuring that students receive top-notch instruction.</p>
+                  </div>
+                </div><!-- End slide item -->
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Industry Partnerships</h3>
+                    <p>We have established strong partnerships with leading aviation companies, providing students with access to internships and job opportunities.</p>
+                  </div>
+                </div><!-- End slide item -->
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>       
+        </div>
+      </div>
+    </section><!-- End What Sets Us Apart -->
+
+      <!-- ======= Our Approach ======= -->
+    <section id="our-approach" class="our-approach mt-5" style="background: #03649b;">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2 style="font-family: 'Times New Roman', Times, serif; color: white;">Global Partnerships</h2>
+        </div>
+        <div class="row g-0">
+          <div class="col-lg-6 d-flex align-items-stretch">
+            <div class="content text-white">
+                <!-- <h3>IATA</h3> -->
+                <p><span style="font-weight: bold;font-family: 'Times New Roman', Times, serif;">AITMS - AERO INSTITUTE OF TECHNOLOGY AND MANAGEMENT STUDIES</span> is a leading aviation and logistics institute in South India, offering a wide range of courses in the field of aviation and logistics. AITMS is an authorized IATA training center, which ensures that students receive training of the highest quality, which is recognized globally. The institute offers different courses in aviation and logistics, which are designed to cater to the needs of students who wish to pursue a career in this field. These courses can be taken as stand-alone diploma programs or as part of the Integrated Degree Program (IDP), which provides students with the opportunity to earn a degree while studying at AITMS.</p>
+                <p>The courses offered at AITMS cover a wide range of topics related to .. 
+                <ul>
+                    <li>aviation and logistics</li>
+                    <li>airline and airport operations</li>
+                    <li>cargo handling</li>
+                    <li>ground handling</li>
+                    <li>customer service</li>
+                    <li>air navigation and</li>
+                    <li>air cargo management</li>
+                </ul>
+                The courses are designed to provide students with a comprehensive understanding of the industry and prepare them for a successful career in the aviation and logistics sector. AITMS has centers spread across South India, making it easy for students to access the institute's training facilities. The institute has state-of-the-art infrastructure and is equipped with modern classrooms, laboratories, and simulation facilities, which provide students with a hands-on learning experience.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex align-items-stretch p-5 mt-0">
+            <!-- <img src="assets/img/iata1.webp" alt="Description of the image" class="img-fluid" style="border-radius: 50%;"> -->
+            <img src="{% static '/assets/img/iata1.webp' %}" alt="Description of the image" class="img-fluid" style="border-radius: 50%;">
+          </div>
+        </div>
+      </div>
+    </section><!-- End Our Approach -->
+
+    <!-- scroll section` -->
+    <section id="scrolling-text" class="scrolling-text">
+      <div class="container-fluid" data-aos="fade-up">
+        <div class="marquee">
+          <p class="mt-3" style="font-weight: bold;">Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now! 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!  
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admissions open for IATA Diploma in Logistics & Aviation. Contact our Student Counsellors Now!
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- end scroll section` -->
+
+    <!-- degree card section -->
+    <section id="card-section" class="card-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2 style="font-family: 'Times New Roman', Times, serif;">INTEGRATED DEGREE PROGRAMS IN</h2>
+        </div>
+        <div class="row text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <!-- <img src="assets/img/aviatin.webp" class="card-img-top" alt="Card Image"> -->
+              <img src="{% static '/assets/img/aviatin.webp' %}" class="card-img-top" alt="Card Image">
+              <div class="card-body">
+                <h5 class="card-title">Aviation</h5>
+                <p class="card-text">India is expected to overtake China and the United States as the world's third-largest air passenger market in the next ten years, by 2030, according to the International Air Transport Association (IATA).Further, the rising demand in the sector has pushed the number of airplanes operating in the sector. <span class="more-text" style="display: none;">Further, the rising demand in the sector has pushed the number of airplanes operating in the sector. The number of airplanes is expected to reach 1,100 planes by 2027. India’s passenger* traffic stood at 188.89 million in FY22 and 76.47 million in the first quarter of FY 2022-23. In FY22, airports in India pegged the domestic passenger traffic to be 166.8 million, a 58.5% YoY increase, and international passenger traffic to be 22.1 million, a 118% YoY increase, as compared to FY 2020-21.</span></p>
+                <a href="#" class="btn-get-started jiggle" onclick="toggleText(event)">Know More</a>
+                <a href="#" class="btn-show-less" style="display: none;" onclick="toggleText(event)">Show Less</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+              <!-- <img src="assets/img/logistics.webp" class="card-img-top" alt="Card Image"> -->
+              <img src="{% static '/assets/img/logistics.webp' %}" class="card-img-top" alt="Card Image">
+              <div class="card-body">
+                <h5 class="card-title">Logistics</h5>
+                <p class="card-text">India’s logistics are estimated to account for about 14.4% of GDP. In 2019, the Indian logistics sector was valued at Rs. 15.1 lakh crore (US$ 190 billion).The development of the logistics sector is also reflected by the fact that India scored 90.3% in the United UNESCAP’s Global Survey on Digital and <span class="more-text" style="display: none;">Sustainable Trade Facilitation conducted in 2021, which is an exceptional improvement from the score it secured in 2019 of 78.5%, brought about by gains in the scores of five important indicators. The score has shown a consistent improvement, with scores of 63.4% and 67.7% secured in 2015 and 2017, respectively.</span> 
+                </p>
+                <a href="#" class="btn-get-started jiggle" onclick="toggleText(event)">Know More</a>
+                <a href="#" class="btn-show-less" style="display: none;" onclick="toggleText(event)">Show Less</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+              <!-- <img src="assets/img/cyber.webp" class="card-img-top" alt="Card Image"> -->
+              <img src="{% static '/assets/img/cyber.webp' %}" class="card-img-top" alt="Card Image">
+              <div class="card-body">
+                <h5 class="card-title">Cyber Security</h5>
+                <p class="card-text">The Indian Cyber Security Market was valued at USD2200.23 million in the year FY2021. The market growth is anticipated to continue during the forecast period, FY2023-FY2027, with a CAGR of 8.05% to achieve a market value of USD3543.37 million by FY2027.Surging demands for the security protocols and <span class="more-text" style="display: none;">Surging demands for the security protocols and processes due to increasing data theft is actively driving the growth of the Indian Cyber Security Market in the upcoming five years. Complaints about the data breach from cyber companies and hacking attempts, cyber phishing, foreign espionage, etc., are majorly driving the market growth. </span></p>
+                <a href="#" class="btn-get-started jiggle" onclick="toggleText(event)">Know More</a>
+                <a href="#" class="btn-show-less" style="display: none;" onclick="toggleText(event)">Show Less</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+              <!-- <img src="assets/img/commerce.webp" class="card-img-top" alt="Card Image"> -->
+              <img src="{% static '/assets/img/commerce.webp' %}" class="card-img-top" alt="Card Image">
+              <div class="card-body">
+                <h5 class="card-title">Commerce</h5>
+                <p class="card-text">Though accounting and finance are exciting domains to fuel your career success, it can be more competitive to secure a role in the Big 4 and top MNCs. But having an appetite for core competency (analytical, problem-solving, and strategic leadership) can land you in ground-breaking careers with the <span class="more-text" style="display: none;">  leading accounting and finance firms at home and abroad. Of late, the big push factors for Class 12 or PUC students to choose finance or accounting as their future career destination are above-average pay, globally recognized credential & expertise, influential roles, sustainable professional advancement, flexible courses, and diverse career pathways. </span></p>
+                <a href="#" class="btn-get-started jiggle" onclick="toggleText(event)">Know More</a>
+                <a href="#" class="btn-show-less" style="display: none;" onclick="toggleText(event)">Show Less</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end degree card section -->
+
+    <script>
+      function toggleText(event) {
+        event.preventDefault();
+        const cardBody = event.target.closest('.card-body');
+        const moreText = cardBody.querySelector('.more-text');
+        const btnKnowMore = cardBody.querySelector('.btn-get-started');
+        const btnShowLess = cardBody.querySelector('.btn-show-less');
+      
+        if (moreText.style.display === 'none' || moreText.style.display === '') {
+          moreText.style.display = 'inline';
+          btnKnowMore.style.display = 'none';
+          btnShowLess.style.display = 'inline';
+        } else {
+          moreText.style.display = 'none';
+          btnKnowMore.style.display = 'inline';
+          btnShowLess.style.display = 'none';
+        }
+      }
+    </script>
+
+    <!-- Photo Gallery Section -->
+    <section id="photo-gallery" class="photo-gallery" style="background: linear-gradient(#03649b,black);">
+      <div class="container" >
+        <div class="section-header" data-aos="fade-up">
+          <h2 style="font-family: 'Times New Roman', Times, serif;color: white;">Photo Gallery</h2>
+        </div>
+        <div class="row" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-12">
+            <!-- Carousel -->
+            <div id="gallery-carousel" class="carousel slide" data-bs-ride="carousel"  data-bs-interval="1500">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <!-- <img src="assets/img/c1.webp" class="d-block w-100 rounded" alt="Gallery Image 1"> -->
+                  <img src="{% static '/assets/img/c1.webp' %}" class="d-block w-100 rounded" alt="Gallery Image 1">
+                </div>
+                <div class="carousel-item">
+                  <!-- <img src="assets/img/c2.webp" class="d-block w-100 rounded" alt="Gallery Image 2"> -->
+                  <img src="{% static '/assets/img/c2.webp' %}" class="d-block w-100 rounded" alt="Gallery Image 2">
+                </div>
+                <div class="carousel-item">
+                  <!-- <img src="assets/img/c3.webp" class="d-block w-100 rounded" alt="Gallery Image 3"> -->
+                  <img src="{% static '/assets/img/c3.webp' %}" class="d-block w-100 rounded" alt="Gallery Image 3">
+                </div>
+                <div class="carousel-item">
+                  <!-- <img src="assets/img/c4.webp" class="d-block w-100 rounded" alt="Gallery Image 4"> -->
+                  <img src="{% static '/assets/img/c4.webp' %}" class="d-block w-100 rounded" alt="Gallery Image 4">
+                </div>
+                <div class="carousel-item">
+                  <!-- <img src="assets/img/c5.webp" class="d-block w-100 rounded" alt="Gallery Image 5"> -->
+                  <img src="{% static '/assets/img/c5.webp' %}" class="d-block w-100 rounded" alt="Gallery Image 5">
+                </div>
+                <!-- Add more carousel items as needed -->
+              </div>
+              <button class="carousel-control-prev "  type="button" data-bs-target="#gallery-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#gallery-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <!-- End Carousel -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Photo Gallery Section -->
+
+    <!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-posts" class="recent-posts" style="background: url('static/assets/img/contact-bg.png');">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>AITMS Blog</h2>
+        </div>
+        <div class="container-fluid">
+          <div class="row gy-5 justify-content-center">
+            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100" style="padding: 50px;background: linear-gradient(#03649b,black); border-radius: 20px;">
+              <div class="post-box">
+                <!-- <div class="post-img"><img src="assets/img/b1.webp" class="img-fluid " alt="" ></div> -->
+                <div class="post-img"><img src="{% static '/assets/img/b1.webp' %}" class="img-fluid " alt="" ></div>
+                <div class="meta">
+                  <span class="post-date"><b>2023, February 12</b></span>
+                  <!-- <span class="post-author"> / Julia Parker</span> -->
+                </div>
+                <h2 class="post-title text-white"><b>Integrated Degree Program</b></h2>
+                <p style="color: white;">
+                  While traditional colleges tend to offer a general graduate curriculum, AITMS offers the opportunity for our students to specialize their degree and further develop their expertise in Aviation, Logistics, IT & Commerce.
+                  <span class="more-text1" style="display: none;">
+                    Our carefully crafted curriculum is designed to reflect today’s most in-demand skills so you can graduate with the most relevant knowledge for your career. At AITMS, we hone their leadership skills and develop the foundational knowledge they need to accelerate in their career. Our Exceptional Faculties & Trainers redefine their current path, update their knowledge, or upskill in the areas they specialize.
+                  </span>
+                </p>
+                <a href="#" class="readmore stretched-link" onclick="toggleText1(event)">
+                  <span id="more-button1">Read More</span>
+                  <span id="less-button1" style="display: none;">Show Less</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section><!-- End Recent Blog Posts Section -->
+
+    <script>
+      function toggleText1(event) {
+        event.preventDefault();
+        var moreText = document.querySelector('.more-text1');
+        var moreButton = document.getElementById('more-button1');
+        var lessButton = document.getElementById('less-button1');
+    
+        if (moreText.style.display === 'none' || moreText.style.display === '') {
+          moreText.style.display = 'inline';
+          moreButton.style.display = 'none';
+          lessButton.style.display = 'inline';
+        } else {
+          moreText.style.display = 'none';
+          moreButton.style.display = 'inline';
+          lessButton.style.display = 'none';
+        }
+      }
+    </script>
+
+  <!-- YouTube Video Section -->
+  <section id="youtube-video" class="youtube-video" style="background: linear-gradient(white,black);">
+    <div class="container">
+      <!-- <div class="section-header" data-aos="fade-up">
+        <h2 style="font-family: 'Times New Roman', Times, serif; color: white;">YouTube Video</h2>
+      </div> -->
+      <div class="row" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-12">
+          <div class="video-wrapper">
+            <!-- YouTube Embedded Player -->
+            <iframe width="100%" height="800" src="https://www.youtube.com/embed/Aze6c9t0ge0" title="വിദേശമാണോ ലക്ഷ്യം ? സ്വപ്ന ചിറകിൽ പറന്നുയരാൻ സഹായിക്കും Aero Insititute of Tech &amp; Management Studies" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- <iframe width="100%" height="400" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" title="YouTube Video Player" frameborder="0" allowfullscreen></iframe> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End YouTube Video Section -->
+
+    
+
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+            <h3>Highlighting Features of <br> <span style="color: #03649b;"><b>Aero institute of Technology & Management Studies</b></span></h3>
+
+            <div class="row gy-4">
+
+              <div class="col-md-6">
+                  <div class="icon-list d-flex">
+                      <i class="ri-book-line" style="color: #ffbb2c;"></i>
+                      <span>Library & Resource Center</span>
+                  </div>
+              </div><!-- End Icon List Item-->
+          
+              <div class="col-md-6">
+                  <div class="icon-list d-flex">
+                      <i class="ri-football-line" style="color: #5578ff;"></i>
+                      <span>Sports & Recreation</span>
+                  </div>
+              </div><!-- End Icon List Item-->
+          
+              <div class="col-md-6">
+                  <div class="icon-list d-flex">
+                      <i class="ri-briefcase-line" style="color: #e80368;"></i>
+                      <span>Placement Training</span>
+                  </div>
+              </div><!-- End Icon List Item-->
+          
+              <div class="col-md-6">
+                  <div class="icon-list d-flex">
+                      <i class="ri-group-line" style="color: #e361ff;"></i>
+                      <span>Job Fairs & Events</span>
+                  </div>
+              </div><!-- End Icon List Item-->
+          
+              <div class="col-md-6">
+                  <div class="icon-list d-flex">
+                      <i class="ri-briefcase-3-line" style="color: #47aeff;"></i>
+                      <span>Internship Opportunities</span>
+                  </div>
+              </div><!-- End Icon List Item-->
+          
+              <div class="col-md-6">
+                  <div class="icon-list d-flex">
+                      <i class="ri-time-line" style="color: #ffa76e;"></i>
+                      <span>Part-Time Opportunities</span>
+                  </div>
+              </div><!-- End Icon List Item-->
+          
+              <div class="col-md-6">
+                  <div class="icon-list d-flex">
+                      <i class="ri-home-2-line" style="color: #11dbcf;"></i>
+                      <span>Hostel Facilities</span>
+                  </div>
+              </div><!-- End Icon List Item-->
+          
+              <div class="col-md-6">
+                  <div class="icon-list d-flex">
+                      <i class="ri-building-2-line" style="color: #ff5828;"></i>
+                      <span>Industry Visits</span>
+                  </div>
+              </div><!-- End Icon List Item-->
+          </div>
+          
+          </div>
+          <div class="col-lg-5 position-relative" data-aos="fade-up" data-aos-delay="200">
+            <div class="phone-wrap">
+              <!-- <img src="assets/img/iphone.png" alt="Image" class="img-fluid"> -->
+              <img src="{% static '/assets/img/iphone.png' %}" alt="Image" class="img-fluid">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="details">
+        <div class="container" data-aos="fade-up" data-aos-delay="300">
+          <div class="row">
+            <div class="col-md-6">
+              <h4>Explore the World with<br><span style="color: #03649b;"><b>AITMS</b></span></h4>
+              <p>"Discover limitless possibilities in aviation, logistics, IT, and e-commerce at our institute, where your future takes flight!"</p>
+              <a href="#" class="btn-get-started jiggle">Get Started</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End Features Section -->
+
+  <!-- Contact Section -->
+  <section id="contact1" class="contacts" style="background: linear-gradient(#03649b,black);">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="row text-white">
+            <div class="col-lg-12">
+              <h4 class="contact-heading-1">WE'RE HIRING!</h4>
+              <h2 class="contact-heading-1">Join Our Team</h2>
+              <b><h5 class="contact-heading-1">Academic Counselors </h5></b>
+            </div>
+            <div class="col-lg-12">
+              <p class="contact-paragraph"> We are searching for proactive professionals who are passionate about assisting students as they progress through their academic journey, from new student orientation to graduation. Academic advisors will assist students with choosing classes, determining their strengths, selecting majors, and help them work towards careers that fit their talents. To ensure that students are progressing towards their goals, Academic advisors will communicate regularly with students, maintain records of their performance, and intervene if declines in grades or attendance occur.  </p>
+              <p class="contact-paragraph"> Locations : Kochi, Kozhikode, Kannur, Tvm </p>
+              <p class="contact-paragraph"> If you're interested in one of our open positions, start by applying here and attaching your resume. </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="col-lg-12">
+            <b><h3 class="contact-heading-1 text-white ">Apply Now</h3></b>
+          </div>
+          <form action="" method="post" id="contactForm1">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-floating mt-3">
+                  <input type="text" name="name1" class="form-control" id="name1" placeholder="Your Name" required>
+                  <label for="name1">Name</label>
+                  <small id="name-error1" style="color: red; display: none;" class="mt-1">Name should contain only alphabets</small>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-floating mt-3">
+                  <input type="email" class="form-control" name="email1" id="email1" placeholder="Your Email" required>
+                  <label for="email1">Your Email</label>
+                  <small id="email-error1" style="color: red; display: none;" class="mt-1">Please enter a valid email address</small>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-floating mt-3">
+                  <input type="tel" class="form-control" name="phone1" id="phone1" placeholder="Your Phone" required>
+                  <label for="phone1">Your Phone Number</label>
+                  <small id="phone-error1" style="color: red; display: none;" class="mt-1">Please enter a valid 10-digit phone number</small>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-floating mt-3">
+                  <textarea class="form-control" name="message1" id="message1" rows="5" placeholder="Message" required></textarea>
+                  <label for="message1">Message</label>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-floating mt-3">
+                  <input type="file" class="form-control" name="resume1" id="resume1" required>
+                  <label for="resume1">Attach Resume</label>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="mb-3 d-grid gap-2 mt-4">
+                  <input type="submit" class="btn btn" name="submit" style="background-color: #03649b;color: white;">
+                </div>
+              </div>
+            </div>
+          </form>
+          <script>
+            document.getElementById('contactForm1').addEventListener('submit', function(event) {
+              var nameInput = document.getElementById('name1').value.trim();
+              var emailInput = document.getElementById('email1').value.trim();
+              var phoneInput = document.getElementById('phone1').value.trim();
+              var messageInput = document.getElementById('message1').value.trim();
+          
+              var nameRegex = /^[a-zA-Z ]+$/;
+              var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              var phoneRegex = /^[0-9]{10}$/;
+          
+              var valid = true;
+          
+              if (!nameRegex.test(nameInput)) {
+                document.getElementById('name-error1').style.display = 'block';
+                valid = false;
+              } else {
+                document.getElementById('name-error1').style.display = 'none';
+              }
+          
+              if (!emailRegex.test(emailInput)) {
+                document.getElementById('email-error1').style.display = 'block';
+                valid = false;
+              } else {
+                document.getElementById('email-error1').style.display = 'none';
+              }
+          
+              if (!phoneRegex.test(phoneInput)) {
+                document.getElementById('phone-error1').style.display = 'block';
+                valid = false;
+              } else {
+                document.getElementById('phone-error1').style.display = 'none';
+              }
+          
+              if (!valid) {
+                event.preventDefault(); // Prevent form submission
+              }
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+
+
+    <!-- Related Organizations Section -->
+<section id="related-organizations" class="related-organizations">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2 style="font-family: 'Times New Roman', Times, serif; color: black;">Related Organizations</h2>
+    </div>
+    <div class="row" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-lg-2 col-md-6 mb-3" >
+        <div class="organization-item" style="border-radius: 10px;padding: 20px;">
+          <!-- <img src="assets/img/heritage web.png" class="img-fluid" alt="Organization 1"> -->
+          <img src="{% static '/assets/img/heritage web.png' %}" class="img-fluid" alt="Organization 1">
+          <div class="overlay">
+            <p>Elements of Cinemas</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-3">
+        <div class="organization-item" style="border-radius: 10px;padding: 20px;">
+          <!-- <img src="assets/img/fth.png" class="img-fluid" alt="Organization 2"> -->
+          <img src="{% static '/assets/img/fth.png' %}" class="img-fluid" alt="Organization 2">
+          <div class="overlay">
+            <p>Bon Voyage</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-3">
+        <div class="organization-item" style="border-radius: 10px;padding: 20px;">
+          <!-- <img src="assets/img/heritage web.png" class="img-fluid" alt="Organization 3"> -->
+          <img src="{% static '/assets/img/heritage web.png' %}" class="img-fluid" alt="Organization 3">
+          <div class="overlay">
+            <p>Heritage City College</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-3">
+        <div class="organization-item" style="border-radius: 10px;padding: 20px;">
+          <!-- <img src="assets/img/fth.png" class="img-fluid" alt="Organization 3"> -->
+          <img src="{% static '/assets/img/fth.png' %}" class="img-fluid" alt="Organization 3">
+          <div class="overlay">
+            <p class="text-center">Saisidd Group of Institution</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-3">
+        <div class="organization-item" style="border-radius: 10px;padding: 20px;">
+          <!-- <img src="assets/img/heritage web.png" class="img-fluid" alt="Organization 3"> -->
+          <img src="{% static '/assets/img/heritage web.png' %}" class="img-fluid" alt="Organization 3">
+          <div class="overlay">
+            <p>Jai Bharat Group</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-3">
+        <div class="organization-item" style="border-radius: 10px;padding: 20px;">
+          <!-- <img src="assets/img/fth.png" class="img-fluid" alt="Organization 4"> -->
+          <img src="{% static '/assets/img/fth.png' %}" class="img-fluid" alt="Organization 4">
+          <div class="overlay">
+            <p class="text-center">Saisidd Group of Institution</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Related Organizations Section -->
+
+
+
+  </main><!-- End #main -->
+
+  {% endblock %}

@@ -6,91 +6,91 @@ def index(request):
     return render(request, 'index.html')
 
 def about_overview(request):
-    return HttpResponse("about_overview")
+    return render(request, 'about_overview.html')
     
 def vision_mission(request):
-    return HttpResponse("vision_mission")
+    return render(request, 'vision_mission.html')
 
 def leadershipteam(request):
-    return HttpResponse("leadershipteam")
+    return render(request, 'leadershipteam.html')
 
 def ranking_recognition(request):
-    return HttpResponse("ranking_recognition")
+    return render(request, 'ranking_recognition.html')
 
 def collaborations(request):
-    return HttpResponse("collaborations")
+    return render(request, 'collaborations.html')
 
 def blogs(request):
-    return HttpResponse("blogs")
+    return render(request, 'blogs.html')
 
 def Social_responsibilities(request):
-    return HttpResponse("Social_responsibilities")
+    return render(request, 'Social_responsibilities.html')
 
 def admissions_overview(request):
-    return HttpResponse("admissions_overview")
+    return render(request, 'admissions_overview.html')
 
 def ug_programs(request):
-    return HttpResponse("ug_programs")
+    return render(request, 'ug_programs.html')
 
 def pg_programs(request):
-    return HttpResponse("pg_programs")
+    return render(request, 'pg_programs.html')
 
 def diploma_programs(request):
-    return HttpResponse("diploma_programs")
+    return render(request, 'diploma_programs.html')
 
 def other_short_programs(request):
-    return HttpResponse("other_short_programs")
+    return render(request, 'other_short_programs.html')
 
 def scholorship(request):
-    return HttpResponse("scholorship")
+    return render(request, 'scholorship.html')
 
 def career_guidance(request):
-    return HttpResponse("career_guidance")
+    return render(request, 'career_guidance.html')
 
 def campuses(request):
-    return HttpResponse("campuses")
+    return render(request, 'campuses.html')
 
 def learning_methodology(request):
-    return HttpResponse("learning_methodology")
+    return render(request, 'learning_methodology.html')
 
 def library_recourse_center(request):
-    return HttpResponse("library_&_recourse_center")
+    return render(request, 'library_&_recourse_center.html')
 
 def allied_departments(request):
-    return HttpResponse("allied_departments")
+    return render(request, 'allied_departments.html')
 
 def sports_recreation(request):
-    return HttpResponse("sports_&_recreation")
+    return render(request, 'sports_&_recreation.html')
 
 def hostal_facilities(request):
-    return HttpResponse("hostal_facilities")
+    return render(request, 'hostal_facilities.html')
 
 def industry_visits(request):
-    return HttpResponse("industry_visits")
+    return render(request, 'industry_visits.html')
 
 def placements_overview(request):
-    return HttpResponse("placements_overview")
+    return render(request, 'placements_overview.html')
 
 def placement_training(request):
-    return HttpResponse("placement_training")
+    return render(request, 'placement_training.html')
 
 def job_fairs_events(request):
-    return HttpResponse("job_fairs_&_events")
+    return render(request, 'job_fairs_&_events.html')
 
 def current_offers(request):
-    return HttpResponse("current_offers")
+    return render(request, 'current_offers.html')
 
 def internship_opportunities(request):
-    return HttpResponse("internship_opportunities")
+    return render(request, 'internship_opportunities.html')
 
 def part_time_opportunities(request):
-    return HttpResponse("current_part_time_opportunitiesoffers")
+    return render(request, 'part_time_opportunities.html')
 
-def scholorship(request):
-    return HttpResponse("scholorship")
+def testimonials(request):
+    return render(request, 'testimonials.html')
 
 def contact_us(request):
-    return HttpResponse("contact_us")
+    return render(request, 'contact_us.html')
 
 def parscore(request):
-    return HttpResponse("parscore")
+    return render(request, 'parscore.html')

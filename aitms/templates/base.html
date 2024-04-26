@@ -44,93 +44,93 @@
 
   <div class="mega-icon">
     <i class="fa fa-envelope my-float1"></i>
-</div>
-<div class="icons-wrapper">
+  </div>
+  <div class="icons-wrapper">
     <a class="call-picker" href="tel:+919539565055" target="_blank">
-        <i class="fa fa-phone"></i>
+      <i class="fa fa-phone"></i>
     </a>
     <a class="whats-app" href="https://wa.me/9539565055" target="_blank">
-        <i class="fab fa-whatsapp my-float"></i>
+      <i class="fab fa-whatsapp my-float"></i>
     </a>
-</div>
-
-<script>
-    document.querySelector('.mega-icon').addEventListener('click', function() {
-        const iconsWrapper = document.querySelector('.icons-wrapper');
-        if (iconsWrapper.style.display === 'block') {
-            iconsWrapper.style.display = 'none';
-        } else {
-            iconsWrapper.style.display = 'block';
-        }
-    });
-</script>
-
-<!-- ======= Header ======= -->
-<header id="header" class="header d-flex align-items-center fixed-top">
-  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-    <a href="" class="logo d-flex align-items-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="d-flex align-items-center" style="font-family: 'Times New Roman', Times, serif;">AITMS</h1>
-    </a>
-
-    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
-    <nav id="navbar" class="navbar">
-      <ul>
-        <li><a href="" class="active">Home</a></li>
-        <li class="dropdown"><a href="" ><span>About Us</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-          <ul>
-            <li><a href="">Overview</a></li>
-            <li><a href="">Vision & Mission</a></li>
-            <li><a href="">Leadership Team</a></li>
-            <li><a href="">Ranking & Recognition</a></li>
-            <li><a href="">Collaboration</a></li>
-            <li><a href="">Blog</a></li>
-            <li><a href="">Social Responsibilities</a></li>
-          </ul>
-        </li>
-        <li class="dropdown"><a href=""><span>Admissions</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-          <ul>
-            <li><a href="">Overview</a></li>
-            <li><a href="">UG Programs</a></li>
-            <li><a href="">PG Programs</a></li>
-            <li><a href="">Diploma Programs</a></li>
-            <li><a href="">Other Short Programs</a></li>
-            <li><a href="">Scholarships</a></li>
-          </ul>
-        </li>
-        <li class="dropdown"><a href=""><span>Academics</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-          <ul>
-            <li><a href="">Career Guidance</a></li>
-            <li><a href="">Campuses</a></li>
-            <li><a href="">Learning Methodology</a></li>
-            <li><a href="">Library & Resource Center</a></li>
-            <li><a href="">Allied Departments</a></li>
-            <li><a href="">Sports & Recreation</a></li>
-            <li><a href="">Hostel facilities</a></li>
-            <li><a href="">Industry Visits</a></li>
-          </ul>
-        </li>
-        <li class="dropdown"><a href="" ><span>Placements</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-          <ul>
-            <li><a href="">Overview</a></li>
-            <li><a href="">Placement Training</a></li>
-            <li><a href="">Job Fairs & Events</a></li>
-            <li><a href="">Current Offers</a></li>
-            <li><a href="">Internship Opportunities</a></li>
-            <li><a href="">Part Time Opportunities</a></li>
-            <li><a href="">Testimonials</a></li>
-          </ul>
-        </li>
-        <li><a href="">Contact Us</a></li>
-      </ul>
-    </nav><!-- .navbar -->
-
   </div>
-</header><!-- End Header -->
+
+  <script>
+    document.querySelector('.mega-icon').addEventListener('click', function() {
+      const iconsWrapper = document.querySelector('.icons-wrapper');
+      if (iconsWrapper.style.display === 'block') {
+          iconsWrapper.style.display = 'none';
+      } else {
+          iconsWrapper.style.display = 'block';
+      }
+    });
+  </script>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'home' %}" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="d-flex align-items-center" style="font-family: 'Times New Roman', Times, serif;">AITMS</h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'home' %}" class="{% block title1 %}{% endblock %}">Home</a></li>
+          <li class="dropdown"><a href="{% url 'about_overview' %}" class="{% block title2 %}{% endblock %}"><span>About Us</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="{% url 'about_overview' %}">Overview</a></li>
+              <li><a href="{% url 'vision_mission' %}">Vision & Mission</a></li>
+              <li><a href="{% url 'leadershipteam' %}">Leadership Team</a></li>
+              <li><a href="{% url 'ranking_recognition' %}">Ranking & Recognition</a></li>
+              <li><a href="{% url 'collaborations' %}">Collaboration</a></li>
+              <li><a href="{% url 'blogs' %}">Blog</a></li>
+              <li><a href="{% url 'Social_responsibilities' %}">Social Responsibilities</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="{% url 'admissions_overview' %}" class="{% block title3 %}{% endblock %}"><span>Admissions</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="{% url 'admissions_overview' %}">Overview</a></li>
+              <li><a href="{% url 'ug_programs' %}">UG Programs</a></li>
+              <li><a href="{% url 'pg_programs' %}">PG Programs</a></li>
+              <li><a href="{% url 'diploma_programs' %}">Diploma Programs</a></li>
+              <li><a href="{% url 'other_short_programs' %}">Other Short Programs</a></li>
+              <li><a href="{% url 'scholorship' %}">Scholarships</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="{% url 'career_guidance' %}" class="{% block title4 %}{% endblock %}"><span>Academics</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="{% url 'career_guidance' %}">Career Guidance</a></li>
+              <li><a href="{% url 'campuses' %}">Campuses</a></li>
+              <li><a href="{% url 'learning_methodology' %}">Learning Methodology</a></li>
+              <li><a href="{% url 'library_recourse_center' %}">Library & Resource Center</a></li>
+              <li><a href="{% url 'allied_departments' %}">Allied Departments</a></li>
+              <li><a href="{% url 'sports_recreation' %}">Sports & Recreation</a></li>
+              <li><a href="{% url 'hostal_facilities' %}">Hostel facilities</a></li>
+              <li><a href="{% url 'industry_visits' %}">Industry Visits</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="{% url 'placements_overview' %}" class="{% block title5 %}{% endblock %}"><span>Placements</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="{% url 'placements_overview' %}">Overview</a></li>
+              <li><a href="{% url 'placement_training' %}">Placement Training</a></li>
+              <li><a href="{% url 'job_fairs_events' %}">Job Fairs & Events</a></li>
+              <li><a href="{% url 'current_offers' %}">Current Offers</a></li>
+              <li><a href="{% url 'internship_opportunities' %}">Internship Opportunities</a></li>
+              <li><a href="{% url 'part_time_opportunities' %}">Part Time Opportunities</a></li>
+              <li><a href="{% url 'testimonials' %}">Testimonials</a></li>
+            </ul>
+          </li>
+          <li><a href="{% url 'contact_us' %}" class="{% block title6 %}{% endblock %}">Contact Us</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
 
 {% block content %}{% endblock %}
 
@@ -141,7 +141,7 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
-            <a href="" class="logo d-flex align-items-center">
+            <a href="{% url 'home' %}" class="logo d-flex align-items-center">
               <span style="color: #03649b;">AITMS</span>
             </a>
             <p>Are you ready to soar to new heights in your career? Our institute offers cutting-edge programs in aviation, logistics, IT, and e-commerce, designed to prepare you for the dynamic world of technology-driven industries.</p>
@@ -156,22 +156,22 @@
           <div class="col-lg-2 col-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bi bi-dash"></i> <a href="">Home</a></li>
-              <li><i class="bi bi-dash"></i> <a href="">About us</a></li>
-              <li><i class="bi bi-dash"></i> <a href="">Admissions</a></li>
-              <li><i class="bi bi-dash"></i> <a href="">Academics</a></li>
-              <li><i class="bi bi-dash"></i> <a href="">Placements</a></li>
-              <li><i class="bi bi-dash"></i> <a href="">Contact Us</a></li>
+              <li><i class="bi bi-dash"></i> <a href="{% url 'home' %}">Home</a></li>
+              <li><i class="bi bi-dash"></i> <a href="{% url 'about_overview' %}">About us</a></li>
+              <li><i class="bi bi-dash"></i> <a href="{% url 'admissions_overview' %}">Admissions</a></li>
+              <li><i class="bi bi-dash"></i> <a href="{% url 'career_guidance' %}">Academics</a></li>
+              <li><i class="bi bi-dash"></i> <a href="{% url 'placements_overview' %}">Placements</a></li>
+              <li><i class="bi bi-dash"></i> <a href="{% url 'contact_us' %}">Contact Us</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bi bi-dash"></i> <a href="">Aviation</a></li>
-              <li><i class="bi bi-dash"></i> <a href="">Logistics</a></li>
-              <li><i class="bi bi-dash"></i> <a href="">IT Cyber Security</a></li>
-              <li><i class="bi bi-dash"></i> <a href="">Commerce </a></li>
+              <li><i class="bi bi-dash"></i> <a href="{% url 'home' %}#card-section">Aviation</a></li>
+              <li><i class="bi bi-dash"></i> <a href="{% url 'home' %}#card-section">Logistics</a></li>
+              <li><i class="bi bi-dash"></i> <a href="{% url 'home' %}#card-section">IT Cyber Security</a></li>
+              <li><i class="bi bi-dash"></i> <a href="{% url 'home' %}#card-section">Commerce </a></li>
             </ul>
           </div>
 

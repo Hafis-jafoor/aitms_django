@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center">
+  
+          <img src="/static/assets/img/aero1.jpg" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+          <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>    
+          <li>About Us</li>
+          <li>collaborations</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= IATA ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row gy-4 p-3" data-aos="fade-up">
+            <div class="col-lg-8">
+              <div class="content ps-lg-5" >
+                <h3 style="font-family: 'Times New Roman', Times, serif;">IATA AUTHORISED TRAINING CENTER</h3>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    AITMS - AERO INSTITUTE OF TECHNOLOGY AND MANAGEMENT STUDIES is a leading aviation and logistics institute in South India, offering a wide range of courses in the field of aviation and logistics. AITMS is an authorized IATA training canter, which ensures that students receive training of the highest quality, which is recognized globally. The institute offers different courses in aviation and logistics, which are designed to cater to the needs of students who wish to pursue a career in this field. These courses can be taken as stand-alone diploma programs or as part of the Integrated Degree Program (IDP), which provides students with the opportunity to earn a degree while studying at AITMS. 
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    The courses offered at AITMS cover a wide range of topics related to aviation and logistics, including airline and airport operations, cargo handling, ground handling, customer service, air navigation, and air cargo management. The courses are designed to provide students with a comprehensive understanding of the industry and prepare them for a successful career in the aviation and logistics sector. AITMS has canters spread across South India, making it easy for students to access the institute's training facilities. The institute has state-of-the-art infrastructure and is equipped with modern classrooms, laboratories, and simulation facilities, which provide students with a hands-on learning experience. 
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center" style="background-color: #03649b;border-radius: 20px;">
+                <div class="img-container text-center p-5">
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;color: white;">
+                        AITMS - AERO INSTITUTE OF TECHNOLOGY AND MANAGEMENT STUDIES is an ideal destination for students who wish to pursue a career in the 
+                        aviation and logistics industry. With its industry-recognized courses, experienced faculty, and state-of-the-art infrastructure,
+                         AITMS is committed to providing students with the best possible education and training, which will help them achieve their career goals.
+                    </p>
+                    <a href="#" class="btn btn-arrow text-white">
+                        <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                        <i class="ri-arrow-right-line text-white"></i>
+                    </a>
+                </div>
+              </div>
+          </div>
+  
+        </div>
+      </section><!-- End IATA Section -->
+
+      <!-- downloads -->
+      <section id="downloads" class="downloads">
+        <div class="container" data-aos="fade-up">
+            <h4>DOWNLOADS</h4>
+            <div class="row gy-4 mt-3" data-aos="fade-up">
+                <div class="col-lg-4">
+                    <div class="download-grid p-5" style="background: #03639b31;border-radius: 20px;">
+                        <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">AITMS, Kochi (pdf)</h3>
+                        <a href="/static/assets/img/Aero Institute of Technology cochi.pdf" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 ">
+                    <div class="download-grid p-5" style="background: #03639b31;border-radius: 20px;">
+                        <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">AITMS, Kozhikode (pdf)</h3>
+                        <a href="/static/assets/img/Aero Institute of Technology - Calicut.pdf" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="download-grid p-5" style="background: #03639b31;border-radius: 20px;">
+                        <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">AITMS, Mavelikkara (pdf)</h3>
+                        <a href="/static/assets/img/Aero Institute of Technology - MAVELIKARA.pdf" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

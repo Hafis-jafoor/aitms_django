@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title2 %}active{% endblock %}
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center">
+
+        <img src="{% static '/assets/img/aero1.jpg' %}" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>About Us</li>
+          <li>Overview</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4" data-aos="fade-up">
+          <div class="col-lg-4 d-flex justify-content-center align-items-center">
+            <div class="img-container">
+                <img src="/static/assets/img/about.jpg" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="content ps-lg-5" >
+              <h3 style="font-family: 'Times New Roman', Times, serif;">ABOUT US</h3>
+              <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                AITMS is a business school that has changed the rules, so does our way of learning. While traditional colleges tend to offer a general curriculum, AITMS offers the opportunity for our students to specialize and further develop their expertise in Aviation, Logistics, IT & Commerce. 
+              </p>
+              <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                Our carefully crafted curriculum is designed to reflect today’s most in - demand skills so you can graduate with the most relevant knowledge for your career. AITMS, is a brainchild of two young entrepreneur couples, Mr. Sreeraj M & Miss. Anju Sreeraj. Their vision to offer an alternative to conventional model of education, with a commitment to an innovative educational model capable of responding to the real needs of corporate business houses and professionals living in an era of constant change and transformation.  
+              </p>
+              <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                The Business School was born in 2015 and provide an integrated model, based on current trends and requirements in the sectors to train young professionals, who can become the backbone of various industries. Our goal is to train for different sectors demanded by the territories in which we live; able to undertake, innovate and create value for their businesses, their employees and society in a sustainable and profitable way. 
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+  <!-- ======= What Sets Us Apart ======= -->
+  <section id="why-us" class="why-us" style="background: url('/static/assets/img/contact-bg.png');">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h2 style="font-family: 'Times New Roman', Times, serif;">What Sets Us Apart</h2>
+      </div>
+      <div class="row g-0" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-xl-5 img-bg" style="background-image: url('/static/assets/img/why-us-bg.jpg')"></div>
+        <div class="col-xl-7 slides  position-relative">
+          <div class="slides-1 swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="item">
+                  <h3 class="mb-3">Industry-Leading Training</h3>
+                  <p>Our institute offers comprehensive and industry-leading training programs that prepare students for successful careers in aviation.</p>
+                </div>
+              </div><!-- End slide item -->
+              <div class="swiper-slide">
+                <div class="item">
+                  <h3 class="mb-3">State-of-the-Art Facilities</h3>
+                  <p>We pride ourselves on our state-of-the-art facilities, including cutting-edge simulators and training aircraft, providing students with a hands-on learning experience.</p>
+                </div>
+              </div><!-- End slide item -->
+              <div class="swiper-slide">
+                <div class="item">
+                  <h3 class="mb-3">Experienced Instructors</h3>
+                  <p>Our team of experienced instructors brings a wealth of knowledge and expertise to the classroom, ensuring that students receive top-notch instruction.</p>
+                </div>
+              </div><!-- End slide item -->
+              <div class="swiper-slide">
+                <div class="item">
+                  <h3 class="mb-3">Industry Partnerships</h3>
+                  <p>We have established strong partnerships with leading aviation companies, providing students with access to internships and job opportunities.</p>
+                </div>
+              </div><!-- End slide item -->
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>       
+      </div>
+    </div>
+  </section><!-- End What Sets Us Apart -->
+
+  <!-- moto -->
+  <section id="motto" class="motto mt-5" style="background: linear-gradient(#03649b,black);">
+    <div class="container" data-aos="fade-up">
+        <div class="row" data-aos="fade-up">
+            <div class="col text-white">
+                <div class="motto-content text-center">
+                  <h3 style="font-family: 'Times New Roman', Times, serif;"><b>Our Motto</b></h3>
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                      is value based, Integrity as the core and commitment to the maximum always.
+                    </p>
+                    <a href="#" class="btn btn-arrow text-white">
+                        <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                        <i class="ri-arrow-right-line text-white"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

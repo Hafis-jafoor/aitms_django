@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center">
+  
+          <img src="/static/assets/img/aero1.jpg" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+          <li>About Us</li>
+          <li>Leadership Team</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- degree card section -->
+    <section id="card-section" class="card-section">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <h2 style="font-family: 'Times New Roman', Times, serif;">LEADERSHIP TEAM</h2>
+          </div>
+          <div class="row text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-6 col-md-6">
+              <div class="card">
+                <img src="/static/assets/img/sreeraj sir.webp" class="" alt="Card Image">
+                <div class="card-body">
+                  <h4 class="card-title">Mr. Sreeraj M</h4>
+                  <h6 class="card-title">Founder Chairman</h6>
+                  <h6 class="card-title"> AITMS Group of Institutions</h6>
+                  <p class="card-text text-md-start">A self made Young Entrepreneur with a vision to create employable workforce for this fast growing economy. He built this group from a small training center which he started in his home town, Mavelikkara. Today standing tall, AITMS has come a long way in the last eight years today with presence in 4 cities (Kochi, Kozhikode & Kannur) in Kerala and having offices in Bangalore & Mysore in Karnataka.</p>
+                  <p class="card-text text-md-start"> <span class="more-text" style="display: none;">The Group has a Film Institute (Elements of Cinema https://elementsofcinema.in/), a Study Abroad Consultancy (BON Voyage - https://bonvoyage.education/) and a Career counselling Center. Thousands of Students entered their careers through these institutions and his vision toady is getting accomplished.</span></p>
+                  <a href="#" class="btn-get-started jiggle" onclick="toggleText(event)">Know More</a>
+                  <a href="#" class="btn-show-less" style="display: none;" onclick="toggleText(event)">Show Less</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="card">
+                <img src="/static/assets/img/anju mam.webp" class="" alt="Card Image">
+                <div class="card-body">
+                    <h4 class="card-title">Mr. Sreeraj M</h4>
+                    <h6 class="card-title">Co Founder </h6>
+                    <h6 class="card-title"> AITMS Group of Institutions</h6>
+                    <p class="card-text text-md-start">Ably supporting her partner, Mrs. Anju is fully credited with her efforts in implementing and setting up an eco system for the students and faculties to deliver unique pedagogy and learning experiences in each of their centers. Her astute efforts are also visible in the placement orientation activities and placement drives. The Students character building and discipline is her focal point and her efforts have largely instrumental in the placement of thousands of students in top companies each sectors.</p>
+                    <p class="card-text text-md-start"> <span class="more-text" style="display: none;">Under the strong leadership of this business couple, AITMS is striving hard to establish as a leading skilling institution in South India. The Group has larger plans for the coming years and is in the process of creating quality improvement initiatives' in each of its functions. </span></p>
+                  <a href="#" class="btn-get-started jiggle" onclick="toggleText(event)">Know More</a>
+                  <a href="#" class="btn-show-less" style="display: none;" onclick="toggleText(event)">Show Less</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end degree card section -->
+  
+      <script>
+        function toggleText(event) {
+          event.preventDefault();
+          const cardBody = event.target.closest('.card-body');
+          const moreText = cardBody.querySelector('.more-text');
+          const btnKnowMore = cardBody.querySelector('.btn-get-started');
+          const btnShowLess = cardBody.querySelector('.btn-show-less');
+        
+          if (moreText.style.display === 'none' || moreText.style.display === '') {
+            moreText.style.display = 'inline';
+            btnKnowMore.style.display = 'none';
+            btnShowLess.style.display = 'inline';
+          } else {
+            moreText.style.display = 'none';
+            btnKnowMore.style.display = 'inline';
+            btnShowLess.style.display = 'none';
+          }
+        }
+      </script>
+    
+  </main><!-- End #main -->
+
+{% endblock %}

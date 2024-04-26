@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center">
+
+        <img src="/static/assets/img/aero1.jpg" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>About Us</li>
+          <li>Vision & Mission</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= FIND OUT MORE Section ======= -->
+    <section id="call-to-action" class="call-to-action mt-5">
+        <div class="container" data-aos="fade-up">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 text-center">
+              <h3 style="font-family: 'Times New Roman', Times, serif;">AERO INSTITUTE OF TECHNOLOGY & MANAGEMENT STUDIES</h3>
+              <p style="font-family: Georgia, 'Times New Roman', Times, serif">AITMS is a business school that has changed the rules, so does our way of learning. While traditional colleges tend to offer a general curriculum, AITMS offers the opportunity for our students to specialize and further develop their expertise in Aviation, Logistics, IT & Commerce.</p>
+              <!-- <a class="cta-btn jiggle" href="#" style="font-family: 'Times New Roman', Times, serif;">FIND OUT MORE</a> -->
+            </div>
+          </div>
+        </div>
+      </section><!-- End FIND OUT MORE Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4" data-aos="fade-up" style="background: url('/static/assets/img/contact-bg.png');">
+            <div class="col-lg-12">
+                <div class="content ps-lg-5" >
+                  <h3 style="font-family: 'Times New Roman', Times, serif;"><b>OUR VISION & MISSION</b></h3>
+                  <h4 style="font-family: 'Times New Roman', Times, serif;">Our Vision </h4>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    is “To be a leader in providing integrated training programs for creating the next gen human capital.”
+                  </p>
+                  <h4 style="font-family: 'Times New Roman', Times, serif;">Our Mission</h4>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    is to “Impart world class, real time, experiential, value-oriented training to fulfil the career dreams of an aspiring young professional.”  
+                  </p>
+                  <h4 style="font-family: 'Times New Roman', Times, serif;">Why Choose Us</h4>
+                  <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    AITMS is based on four fundamental pillars: Innovation, Integrity, Ethics and Sustainability. We are a Business School, young, fresh and renewed. We have a training catalogue at the forefront, and we have established ourselves as the best business school in the most prestigious locations in South India. We are a Business School focusing all our efforts on researching and developing a methodology to innovate and apply the best practices in Integrated learning, compared to most schools and universities that try to take advantage of what they already have to apply it in the virtual environment or, despite being new, continue teaching in the same way as traditional schools. Since the pedagogical model of AITMS focuses on the student’s employability and his learning experience, compared to the classic model focused on the contents, the teacher and the educational institution. For us the most important thing is the student and his placement.  
+                  </p>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- moto -->
+    <section id="motto" class="motto" style="background: linear-gradient(#03649b,black);">
+      <div class="container" data-aos="fade-up">
+          <div class="row" data-aos="fade-up">
+              <div class="col text-white">
+                  <div class="motto-content text-center">
+                      <h3 style="font-family: 'Times New Roman', Times, serif;"><b>Our Motto</b></h3>
+                      <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                        is value based, Integrity as the core and commitment to the maximum always.
+                      </p>
+                      <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                        Our teachers are expert professionals with live experience and who have innovated in their sector and are passionate about teaching what they know. They are very close to the student, compared to traditional schools that bet on more academic profiles or gurus who have a lot of names but little time to devote to students.
+                      </p>
+                      <a href="#" class="btn btn-arrow text-white">
+                          <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                          <i class="ri-arrow-right-line text-white"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

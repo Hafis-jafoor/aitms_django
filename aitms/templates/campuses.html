@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title4 %}active{% endblock %}
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center">
+
+      <img src="{% static '/assets/img/aero1.jpg' %}" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+      <ol>
+        <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Academics</li>
+          <li>Campuses</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= campuses  ======= -->
+    <section id="campuses" class="campuses" style="background: url(/static/assets/img/contact-bg.png);">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row gy-4 p-3" data-aos="fade-up">
+            <div class="col-lg-8">
+              <div class="content ps-lg-5" >
+                <h3 style="font-family: 'Times New Roman', Times, serif;color: #03649b;">AITMS CAMPUSES</h3><br>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    The study methodology will be carried out through our Campuses at Kochi, Kozhikode, Mavelikkara, Kannur (Coming up) & Thruvanthapuram, which uses the latest techniques of training tools and, increasingly present in everyday and business life. 
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Our campus is the nerve Centre of AITMS. In addition to containing all the study material, you can use the campus to communicate with your teachers and other students through the use of an internal mail system, chats and forums. This contact will allow you to weave a network of knowledge that goes beyond the simple study of theoretical subjects.
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    The campus encourages collaborative learning through the implementation of discussion forums, research papers, etc. with the aim of promoting a habit of organized work and innovative study that enhances your entrepreneurial attitude and the skills necessary to succeed.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center" style="background-color: #03649b;border-radius: 20px;">
+                <div class="img-container text-center p-5">
+                    <h3 style="font-family: 'Times New Roman', Times, serif;color: white;">Seal of Quality</h3><br>
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;color: white;">
+                        In AITMS we subscribe point by point to the Serious Learning Pedagogy in its attempt to dignify the Learning experience and establish the principles that should serve as a reference to create quality Learning, based on the innovative Integrated Learning. 
+                    </p>
+                    <a href="{% url 'contact_us' %}" class="btn btn-arrow text-white">
+                        <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                        <i class="ri-arrow-right-line text-white"></i>
+                    </a>
+                </div>
+              </div>
+          </div>
+  
+        </div>
+      </section><!-- End campuses Section -->
+    
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

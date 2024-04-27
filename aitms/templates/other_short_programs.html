@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title3 %}active{% endblock %}
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center">
+  
+          <img src="{% static '/assets/img/aero1.jpg' %}" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Admissions</li>
+          <li>Other Short Term Programs</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Section ======= -->
+<section id="features" class="features" style="background: url(/static/assets/img/contact-bg.png);">
+
+    <div class="container" data-aos="fade-up">
+  
+        <div class="section-header">
+            <h2>IDP - INTEGRATED DEGREE PROGRAMS</h2>
+        </div>
+  
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-up">
+                <div class="card p-3" style="background: #03649b;">
+                    <h3 class="card-title text-white text-center">IATA International Certificate Course in Passenger Ground Service (PGS)</h3>
+                    <img src="/static/assets/img/p1.webp" alt="Feature 1 Image" style="border-radius: 20px;">
+                    <div class="card-body text-white ">
+                    <ul>
+                        <li>Semesters: 1 (6 Months)</li>
+                        <li>Registration Fee: ₹ 3,000.00</li>
+                        <li>Admission Fee: ₹ 10,000.00</li>
+                        <li>Total Fees: ₹ 60,000.00</li>
+                    </ul>
+                    <b><p class="card-text text-dark" style="font-size: 20PX;">Course Highlights</p></b><br>
+                    <a href="{% url 'contact_us' %}" class="btn btn-arrow text-white">
+                        <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                        <i class="ri-arrow-right-line text-white"></i>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up">
+                <div class="card p-3" style="background: #03649b;">
+                    <h3 class="card-title text-white text-center">IATA International Certificate Course</h3>
+                    <img src="/static/assets/img/p2.webp" alt="Feature 1 Image" style="border-radius: 20px;">
+                    <div class="card-body text-white ">
+                    <ul>
+                        <li>Semesters: 1 (6 Months)</li>
+                        <li>Registration Fee: ₹ 3,000.00</li>
+                        <li>Admission Fee: ₹ 10,000.00</li>
+                        <li>Total Fees: ₹ 60,000.00</li>
+                    </ul>
+                    <b><p class="card-text text-dark" style="font-size: 20PX;">Course Highlights</p></b><br>
+                    <a href="{% url 'contact_us' %}" class="btn btn-arrow text-white">
+                        <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                        <i class="ri-arrow-right-line text-white"></i>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  </section><!-- End Section -->
+
+  
+
+
+  </main><!-- End #main -->
+
+
+{% endblock %}

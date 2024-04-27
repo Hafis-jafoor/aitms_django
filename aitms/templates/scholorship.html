@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title3 %}active{% endblock %}
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center">
+  
+          <img src="{% static '/assets/img/aero1.jpg' %}" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Admissions</li>
+          <li>Scholarships</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= scholorship Section ======= -->
+    <section id="about" class="about" style="background: url(/static/assets/img/contact-bg.png);">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row gy-4" data-aos="fade-up">
+            <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                <div class="img-container1">
+                  <img src="/static/assets/img/scholor.webp" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="content ps-lg-5" >
+                <h3 style="font-family: 'Times New Roman', Times, serif;">PARSCORE TEST Scholarship</h3>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    PARSCORE Scholarship program is aimed at students with genuine interest and passion about the sector. The PARSCORE TEST Scholarship’s aim to promote quality training and develop talent among interested students who have fewer resources or opportunities or who are part of groups of interest such as new profiles or professionals with a passion towards a sector program. 
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;font-size: 20px;color: black;font-weight: bold;">
+                    Who can apply?   
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    All candidates who meet the following conditions may apply for a PARSCORE TEST Scholarship: ü Meet the admission requirements of the program and pass the selection process.  
+                </p>
+                <ul class="custom-list">
+                    <li>Have a good academic record and/or relevant professional experience.</li>
+                    <li>Meet the requirements of merit and need established.</li>
+                </ul>             
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;font-size: 20px;color: black;font-weight: bold;">
+                    How can I apply for a PARSCORE TEST Scholarship?   
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    To apply for a PARSCORE TEST Scholarship, you must fill out the registration form of the chosen sector (Aviation, Logistics, IT & Commerce) program and mark that you are applying for an PARSCORE TEST Scholarship. In addition to the documentation requested in the admission process, you must indicate:   
+                </p>
+                <ul class="custom-list">
+                    <li>The motivations for which you apply for the scholarship.  </li>
+                    <li> The merits for which you are eligible for this scholarship. </li>
+                    <li>If necessary, the school may request additional information.</li>
+                </ul>
+                <a href="{% url 'parscore' %}" class="btn btn-arrow text-dark">
+                    <span style="border-bottom: 2px solid black;">FIND OUT MORE</span>
+                    <i class="ri-arrow-right-line text-dark"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End scholorship Section -->
+
+  
+
+
+  </main><!-- End #main -->
+
+
+{% endblock %}

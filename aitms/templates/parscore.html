@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center">
+    
+          <img src="{% static '/assets/img/aero1.jpg' %}" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+          <li>PARSCORE Scholarship Test Registration</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container position-relative" data-aos="fade-up">
+  
+          <div class="row gy-4">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6 justify-content-center" data-aos="fade-up" data-aos-delay="250">
+                <h2 class="text-center" style="font-family: 'Times New Roman', Times, serif;">PARSCORE Scholarship Test Registration</h2><br>
+                <form id="contactForm3" action="" method="post">
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name3" placeholder="Your Name" required name="name3">
+                                <label for="name3">Name of the Student</label>
+                                <small id="name-error3" style="color: red; display: none;" class="mt-1">Name should contain only alphabets</small>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="sname" placeholder="Your Name" required name="sname">
+                                <label for="sname">School Name</label>
+                                <!-- <small id="sname-error" style="color: red; display: none;" class="mt-1">Name should contain only alphabets</small> -->
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <select class="form-select" id="select1" name="select1" required>
+                                    <option value="" selected>Select </option>
+                                    <option value="Aviation">Aviation</option>
+                                    <option value="Logistics">Logistics</option>
+                                    <option value="Information Technology">Information Technology</option>
+                                    <option value="Commerce">Commerce</option>
+                                </select>
+                                <label for="select1">Sector of Interest</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="tel" class="form-control" id="phone3" placeholder="Your Phone Number" required name="phone3">
+                                <label for="phone3">Your Phone Number</label>
+                                <small id="phone-error3" style="color: red; display: none;" class="mt-1">Please enter a valid 10-digit phone number</small>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email3" placeholder="Your Email" required name="email3">
+                                <label for="email3">Your Email</label>
+                                <small id="email-error3" style="color: red; display: none;" class="mt-1">Please enter a valid email address</small>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <select class="form-select" id="select2" name="select2" required>
+                                    <option value="" selected>Select </option>
+                                    <option value="Kochi">Kochi</option>
+                                    <option value="Kozhikode">Kozhikode </option>
+                                    <option value="Mavelikkara">Mavelikkara</option>
+                                    <option value="Kannur">Kannur(coming soon)</option>
+                                    <option value="Thiruvanthapuram">Thiruvanthapuram(coming soon)</option>
+                                </select>
+                                <label for="select2">Preferred Location of Study & Test Center *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <select class="form-select" id="select3" name="select3" required onchange="toggleOtherInput()">
+                                    <option value="" selected>Select </option>
+                                    <option value="Medicine">Medicine</option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="Finance(CA, CS, ICWA, Commerce etc)">Finance(CA, CS, ICWA, Commerce etc)</option>
+                                    <option value="Law">Law</option>
+                                    <option value="Management">Management</option>
+                                    <option value="Journalism">Journalism</option>
+                                    <option value="Retail(Sales & Marketing)">Retail(Sales & Marketing)</option>
+                                    <option value="Architecture">Architecture</option>
+                                    <option value="Art & Social Service">Art & Social Service</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <label for="select3">Future Career Path</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12" id="otherField" style="display: none;">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="otherInput" placeholder="Your Career Path" name="otherInput">
+                                <label for="otherInput">Specify Other Career Path</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <input class="btn btn-primary py-3 px-5 jiggle-effect" type="submit" value="Send Message">
+                        </div>
+                    </div>
+                </form>
+                
+                <script>
+                    document.getElementById('contactForm3').addEventListener('submit', function(event) {
+                        var nameInput = document.getElementById('name3').value.trim();
+                        var emailInput = document.getElementById('email3').value.trim();
+                        var phoneInput = document.getElementById('phone3').value.trim();
+                        
+                
+                        var nameRegex = /^[a-zA-Z ]+$/;
+                        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        var phoneRegex = /^[0-9]{10}$/;
+                
+                        var valid = true;
+                
+                        if (!nameRegex.test(nameInput)) {
+                            document.getElementById('name-error3').style.display = 'block';
+                            valid = false;
+                        } else {
+                            document.getElementById('name-error3').style.display = 'none';
+                        }
+                
+                        if (!emailRegex.test(emailInput)) {
+                            document.getElementById('email-error3').style.display = 'block';
+                            valid = false;
+                        } else {
+                            document.getElementById('email-error3').style.display = 'none';
+                        }
+                
+                        if (!phoneRegex.test(phoneInput)) {
+                            document.getElementById('phone-error3').style.display = 'block';
+                            valid = false;
+                        } else {
+                            document.getElementById('phone-error3').style.display = 'none';
+                        }
+                
+                        if (!valid) {
+                            event.preventDefault(); // Prevent form submission
+                        }
+                    });
+                    function toggleOtherInput() {
+                        var selectValue = document.getElementById("select3").value;
+                        var otherField = document.getElementById("otherField");
+                        var otherInput = document.getElementById("otherInput");
+
+                        if (selectValue === "Other") {
+                            otherField.style.display = "block";
+                            otherInput.setAttribute("required", "required");
+                        } else {
+                            otherField.style.display = "none";
+                            otherInput.removeAttribute("required");
+                        }
+                    }
+                </script>
+  
+            </div><!-- End Contact Form -->
+            <div class="col-lg-3"></div>
+          </div>
+  
+        </div>
+      </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title4 %}active{% endblock %}
+{% block content %}
+
+<main id="main">
+
+  <!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center">
+
+      <img src="{% static '/assets/img/aero1.jpg' %}" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+      <ol>
+        <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Academics</li>
+          <li>Library & Resource Center</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= library  ======= -->
+    <section id="library" class="library" style="background: url(/static/assets/img/contact-bg.png);">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row gy-4 p-3" data-aos="fade-up">
+            <div class="col-lg-8">
+              <div class="content ps-lg-5" >
+                <h3 style="font-family: 'Times New Roman', Times, serif;color: #03649b;">LIBRARY & RESOURCE CENTER</h3><br>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    The Library & Resource Center at AITMS is a state-of-the-art facility that offers a wealth of information and resources to students pursuing their education in Aviation, Logistics, IT & Commerce. Our goal is to provide students with access to the latest research, knowledge, and information resources that can help them excel in their academic pursuits and prepare for their future careers. Our library boasts of an extensive collection of books, journals, research papers, and other publications related to the fields of Aviation, Logistics, IT & Commerce. We have also invested in the latest technology and digital resources to ensure that students can access information anytime, anywhere. Our digital library provides access to numerous online databases, e-books, and e-journals, making it easier for students to search for and access the information they need. 
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    The Library & Resource Center is staffed by a team of experienced librarians and research specialists who are always available to assist students with their research needs. They can help students with database searches, reference queries, and other research-related activities. Our librarians also provide training and guidance on research techniques, citation formats, and other important aspects of academic writing. Apart from the vast collection of academic resources, our Library & Resource Center also offers various study spaces to students. These include individual study carrels, group study rooms, and quiet reading areas. The facility is open for extended hours during the academic year, ensuring that students have ample time to access the resources and study spaces they need.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center" style="background-color: #03649b;border-radius: 20px;">
+                <div class="img-container text-center p-5">
+                    <h3 style="font-family: 'Times New Roman', Times, serif;color: white;">THE LIBRARY & RESOURCE CENTER</h3><br>
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;color: white;">
+                        The Library & Resource Center at AITMS is a valuable resource for students pursuing their education in Aviation, Logistics, IT & Commerce. Our comprehensive collection of academic resources, combined with state-of-the-art technology and expert guidance from experienced librarians and research specialists, makes it easier for students to access the information they need to succeed in their academic pursuits and prepare for their future careers.  
+                    </p>
+                    <a href="{% url 'contact_us' %}" class="btn btn-arrow text-white">
+                        <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                        <i class="ri-arrow-right-line text-white"></i>
+                    </a>
+                </div>
+              </div>
+          </div>
+  
+        </div>
+      </section><!-- End library Section -->
+    
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title3 %}active{% endblock %}
+{% block content %}
+
+<main id="main">
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center">
+
+      <img src="{% static '/assets/img/aero1.jpg' %}" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+      <ol>
+        <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Admissions</li>
+          <li>Overview</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= admissions overview ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row gy-4 p-3" data-aos="fade-up">
+            <div class="col-lg-8">
+              <div class="content ps-lg-5" >
+                <h3 style="font-family: 'Times New Roman', Times, serif;color: #03649b;">AITMS AT THE FOREFRONT OF INNOVATION</h3>
+                <h3 style="font-family: 'Times New Roman', Times, serif;" class="text-md-start">Integrated Degree Program</h3>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    While traditional colleges tend to offer a general graduate curriculum, AITMS offers the opportunity for our students to specialize their degree and further develop their expertise in Aviation, Logistics, IT & Commerce. Our carefully crafted curriculum is designed to reflect today’s most in-demand skills so you can graduate with the most relevant knowledge for your career. At AITMS, we hone their leadership skills and develop the foundational knowledge they need to accelerate in their career. Our Exceptional Faculties & Trainers redefine their current path, update their knowledge, or up skill in the areas they specialize.  
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    An IDP graduate - level degree in elective skill sector is an invaluable way to boost your skills and hone your overall business acumen, and it can also enable to tailor your studies. IDP (Integrated Degree Program) will certainly position yourself for the next step in your chosen field. At AITMS, our curriculum is developed by experts who are today’s most successful and experienced in each of the elective skill sector - some of whom will be your faculties & Trainers. We always give prime weightage and aim to keep our course content on the leading edge of global business trends, your IDP electives will reflect the current up-to-date industry knowledge in whatever sector you choose to pursue. Your studies focus on practical application - not just theory - you’ll be able join the industry or your career path with specific, relevant, and valuable new skills sets.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center" style="background-color: #03649b;border-radius: 20px;">
+                <div class="img-container text-center p-5">
+                    <h3 style="font-family: 'Times New Roman', Times, serif;color: white;">Sectors</h3><br>
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;color: white;">
+                        At AITMS, you can opt for an elective skill sector courses alongside your foundational courses in Aviation, Logistics, IT & Commerce along with business administration and leadership development. If you choose to focus your elective skill sector courses around a specific theme or field of expertise - and take at least four sectors in each area - you’ll earn a specialized IDP degree. Choosing a specialization allows you to tailor your career path to the topics that interest you and are most relevant to your professional goals.
+                    </p>
+                    <a href="{% url 'contact_us' %}" class="btn btn-arrow text-white">
+                        <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                        <i class="ri-arrow-right-line text-white"></i>
+                    </a>
+                </div>
+              </div>
+          </div>
+  
+        </div>
+      </section><!-- End admissions overview Section -->
+    
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title4 %}active{% endblock %}
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center">
+
+      <img src="{% static '/assets/img/aero1.jpg' %}" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+      <ol>
+        <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Academics</li>
+          <li>Learning Methodology</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= learning  ======= -->
+    <section id="learning" class="learning" style="background: url(/static/assets/img/contact-bg.png);">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row gy-4 p-3" data-aos="fade-up">
+            <div class="col-lg-8">
+              <div class="content ps-lg-5" >
+                <h3 style="font-family: 'Times New Roman', Times, serif;color: #03649b;">LEARNING METHODOLOGY</h3><br>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    AITMS is a Business School that is committed to an experiential learning methodology, but at the same time contrasted, that responds to the needs of professionals and companies of the this century and that takes advantage of new technologies to offer learning that combines traditional formal models with new formats based on social and collaborative learning, that takes advantage of the resources of next gen business and where the learning methodology is the student and the teacher becomes a learning manager who guides and guides the progress of the group. One of the bases of many studies we are experiencing the fact that learning is self-ignited, it is up to the individual, and it no way the exclusive property of educational institutions and the teacher. 
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    That is why we at AITMS encourage social and collaborative learning, where students have to learn to learn and learn from observation, the experience they get from solving real or simulated cases - "learning by doing" - together with their classmates and teachers. The transmission of knowledge is multidirectional. Innovation is one of the fundamental pillars of AITMS, which introduces a new way of understanding business education, through the use of new technologies and the integration in learning. During the study programs we will use cutting-edge techniques that will encourage study, competitiveness and collaboration among students, all in an environment where interactivity is a key factor. Our model is based on learning by doing, that is, learning by doing, practicing and understanding why in each situation you act in a specific way. 
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    The ultimate goal of our training is to enhance your critical and creative thinking so that you learn to think, and, in this way, you can analyze situations and problems and make the right decisions. At AITMS, learning is adapted to today's society, whose common denominator is the speed of change. Things are no longer as they were and products, business models, trends and knowledge advance as never before. That is why a new way of doing things is necessary where we prioritize skills over competencies. 
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    At AITMS we believe in a model that helps the student survive in this environment and we transform the threat of change into an opportunity. That is why our methodology is based on participation, debate and learning by solving problems in the most real way possible, in a personalized way that adapts to the different abilities and rhythms of each student.
+                </p> 
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center" style="background-color: #03649b;border-radius: 20px;">
+                <div class="img-container text-center p-5">
+                    <h3 style="font-family: 'Times New Roman', Times, serif;color: white;">LEARNING MODALITIES</h3><br>
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;color: white;">
+                        Our learning modalities adapt to you as it suits you. We know that your time is very valuable and that is why we offer you the possibility of being able to combine your day to day with online learning. 
+                    </p>
+                    <h5 style="font-family: 'Times New Roman', Times, serif;color: black;font-weight: bold;">Experiential Learning</h5><br>
+                    <ul class="custom-list1 text-white text-md-start">
+                        <li>Scheduled calendar</li>
+                        <li>Weekly classes</li>
+                        <li>Team Exercises</li>
+                        <li>Monthly projects</li>
+                        <li>Trainer follow-up </li>
+                        <li>Live Industry Visit</li>
+                    </ul>
+                    <h5 style="font-family: 'Times New Roman', Times, serif;color: black;font-weight: bold;">Adaptive Learning</h5><br>
+                    <ul class="custom-list1 text-white text-md-start">
+                        <li>You set the pace</li>
+                        <li>Chapter vice modules </li>
+                        <li>Peer 2 Peer Learning </li>
+                        <li>Projects by module</li>
+                        <li>Tutor tracking</li>
+                    </ul>
+                    <a href="{% url 'contact_us' %}" class="btn btn-arrow text-white">
+                        <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                        <i class="ri-arrow-right-line text-white"></i>
+                    </a>
+                </div>
+              </div>
+          </div>
+  
+        </div>
+      </section><!-- End learning Section -->
+    
+
+    
+
+  </main><!-- End #main -->
+
+
+{% endblock %}

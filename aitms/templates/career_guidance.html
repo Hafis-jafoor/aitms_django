@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title4 %}active{% endblock %}
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center">
+
+      <img src="{% static '/assets/img/aero1.jpg' %}" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+      <ol>
+        <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Academics</li>
+          <li>Career Guidance</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Guidance  ======= -->
+    <section id="guidance" class="guidance" style="background: url(/static/assets/img/contact-bg.png);">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row gy-4 p-3" data-aos="fade-up">
+            <div class="col-lg-8">
+              <div class="content ps-lg-5" >
+                <h3 style="font-family: 'Times New Roman', Times, serif;color: #03649b;">CAREER GUIDANCE</h3><br>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    AITMS Careers is a division of AITMS business school, offering Career Guidance and counselling practice, Employability Skills training programs, curriculum development, positive psychology of counselling, English Communication and Testing, career development in social context, aptitude assessment for career, personality development and career management for students pursuing higher education. 
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    What career after 12th? What are the top demanding courses after the 12th? What should I do after 12th? Or what to do after 12th science? Well, these are a few questions that might be haunting you after you crossed your first milestone i.e., the 10th board examination. To be honest, these queries are universal among students and you are not the only one.
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Now, before diving into the list of courses available for various streams after 12th or what to do after 12th science, we would like you to consider a few factors which will help you to decide on the best course for you. Here’s a quick student guide to select the perfect career options after 12th.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center" style="background-color: #03649b;border-radius: 20px;">
+                <div class="img-container text-center p-5">
+                    <h3 style="font-family: 'Times New Roman', Times, serif;color: white;">THE RIGHT CAREER</h3><br>
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;color: white;">
+                        Right Career Planning is half your job done in crafting a successful future ahead. Our Career Planning Program helps you choose the right steam, the right course, from the right university/college and the right country, all depending on your need.
+                    </p>
+                    <a href="{% url 'contact_us' %}" class="btn btn-arrow text-white">
+                        <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                        <i class="ri-arrow-right-line text-white"></i>
+                    </a>
+                </div>
+              </div>
+          </div>
+  
+        </div>
+      </section><!-- End Guidance Section -->
+    
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

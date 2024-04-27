@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title4 %}active{% endblock %}
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center">
+
+      <img src="{% static '/assets/img/aero1.jpg' %}" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+      <ol>
+        <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Academics</li>
+          <li>Hostel & facilities</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= hostel  ======= -->
+    <section id="hostel" class="hostel" style="background: url(/static/assets/img/contact-bg.png);">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row gy-4 p-3" data-aos="fade-up">
+            <div class="col-lg-8">
+              <div class="content ps-lg-5" >
+                <h3 style="font-family: 'Times New Roman', Times, serif;color: #03649b;">HOSTEL FACILITIES</h3><br>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    At AITMS, we understand that finding suitable accommodation in a new city can be a daunting task for students. To ensure that our students have a safe, comfortable, and affordable place to stay, we have tie-ups with good hostels that are safe, neat, and under budget. While we do not operate any hostel or boarding facilities directly, we have identified suitable options in the vicinity of our center locations that are ideal for our students.
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Our hostel partners are carefully selected to ensure that they meet the high standards of safety, cleanliness, and affordability that we expect. The hostels are located within a walkable distance from our center locations, making it convenient for students to commute. The hostels are separate for boys and girls, ensuring that students feel safe and secure.
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Apart from football and cricket, we also offer other sports and recreational activities to our students. These include basketball, volleyball, badminton, and indoor games such as table tennis, chess, and carom. We have well-equipped sports facilities and trained coaches to support students' training and development.
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    The hostels we have partnered with are equipped with modern amenities such as Wi-Fi, TV, laundry facilities, and 24/7 security. The rooms are spacious, well-ventilated, and furnished with comfortable beds, study tables, and chairs. The hostels have common areas where students can socialize, relax, and engage in recreational activities. To ensure that students have a hassle-free living experience, we have a dedicated team that provides assistance with hostel bookings, check-in, and check-out procedures. We also conduct regular inspections of the hostels to ensure that they maintain the standards we expect. 
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center" style="background-color: #03649b;border-radius: 20px;">
+                <div class="img-container text-center p-5">
+                    <h3 style="font-family: 'Times New Roman', Times, serif;color: white;">HOSTEL FACILITIES</h3><br>
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;color: white;">
+                        At AITMS, we recognize the importance of providing our students with a safe, comfortable, and affordable accommodation option. We have tie-ups with good hostels that are safe, neat, and under budget. These hostels are separate for boys and girls, located within a walkable distance from our center locations, and equipped with modern amenities. Our dedicated team provides assistance with hostel bookings and ensures that students have a hassle-free living experience.    
+                    </p>
+                    <a href="{% url 'contact_us' %}" class="btn btn-arrow text-white">
+                        <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                        <i class="ri-arrow-right-line text-white"></i>
+                    </a>
+                </div>
+              </div>
+          </div>
+  
+        </div>
+      </section><!-- End hostel  Section -->
+    
+
+    
+
+  </main><!-- End #main -->
+
+{% endblock %}

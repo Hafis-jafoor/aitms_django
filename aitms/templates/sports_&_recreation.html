@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title4 %}active{% endblock %}
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('/static/assets/img/about-header.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center">
+
+      <img src="{% static '/assets/img/aero1.jpg' %}" alt="" height="200" width="350" style="border-radius: 50%;"><br>
+      <ol>
+        <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Academics</li>
+          <li>Sports & Recreation</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= sports  ======= -->
+    <section id="sports" class="sports" style="background: url(/static/assets/img/contact-bg.png);">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row gy-4 p-3" data-aos="fade-up">
+            <div class="col-lg-8">
+              <div class="content ps-lg-5" >
+                <h3 style="font-family: 'Times New Roman', Times, serif;color: #03649b;">SPORTS & RECREATION</h3><br>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    At AITMS, we believe that sports and recreational activities are an essential component of a student's holistic development. We offer a variety of sports and recreational activities to our students, including annual sports day, football, cricket, and other sports. Our annual sports day is a highly anticipated event that brings together students from across the institution to participate in a range of sports and recreational activities. The event provides a platform for students to showcase their athletic abilities and engage in friendly competition with their peers. We organize a variety of sports events, including athletics, cricket, football, volleyball, and other outdoor games. 
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Football is one of the most popular sports among our students. We have well-maintained football grounds where students can practice and play. We organize regular inter-college football matches and tournaments, providing opportunities for students to compete against other colleges and showcase their skills. Cricket is another popular sport among our students. We have a dedicated cricket ground with modern facilities for practicing and playing. We organize inter-college cricket matches and tournaments, enabling students to compete against other colleges and gain valuable experience.
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Apart from football and cricket, we also offer other sports and recreational activities to our students. These include basketball, volleyball, badminton, and indoor games such as table tennis, chess, and carom. We have well-equipped sports facilities and trained coaches to support students' training and development.
+                </p>
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    At AITMS, we believe that sports and recreational activities play a critical role in promoting physical fitness, mental well-being, and social interaction among students.  
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center align-items-center" style="background-color: #03649b;border-radius: 20px;">
+                <div class="img-container text-center p-5">
+                    <h3 style="font-family: 'Times New Roman', Times, serif;color: white;">SPORTS & RECREATION</h3><br>
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;color: white;">
+                        Our sports and recreational activities are designed to foster teamwork, leadership skills, and sportsmanship among students.In conclusion, sports and recreational activities at AITMS are an integral part of our student life. We offer a range of activities, including annual sports day, football, cricket, and other sports. Our state-of-the-art sports facilities, trained coaches, and regular inter-college matches and tournaments provide ample opportunities for students to showcase their skills and develop their athletic abilities.   
+                    </p>
+                    <a href="{% url 'contact_us' %}" class="btn btn-arrow text-white">
+                        <span style="border-bottom: 2px solid white;">FIND OUT MORE</span>
+                        <i class="ri-arrow-right-line text-white"></i>
+                    </a>
+                </div>
+              </div>
+          </div>
+  
+        </div>
+      </section><!-- End sports  Section -->
+    
+
+    
+
+  </main><!-- End #main -->
+
+
+{% endblock %}

@@ -58,9 +58,16 @@
             </div>
   
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-  
+                {% if messages %}
+                  {% for message in messages %}
+                      <div class="alert alert-{{ message.tags }}">
+                          {{ message }}
+                      </div>
+                  {% endfor %}
+                {% endif %}
                 <form id="contactForm2" action="{% url 'contact_us' %}" method="post">
-                    <div class="row g-3">
+                  {% csrf_token %}
+                  <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="name2" placeholder="Your Name" required name="name2">

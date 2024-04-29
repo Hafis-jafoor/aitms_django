@@ -26,7 +26,15 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6 justify-content-center" data-aos="fade-up" data-aos-delay="250">
                 <h2 class="text-center" style="font-family: 'Times New Roman', Times, serif;">PARSCORE Scholarship Test Registration</h2><br>
-                <form id="contactForm3" action="" method="post">
+                {% if messages %}
+                  {% for message in messages %}
+                      <div class="alert alert-{{ message.tags }}">
+                          {{ message }}
+                      </div>
+                  {% endfor %}
+                {% endif %}
+                <form id="contactForm3" action="{% url 'parscore' %}" method="post">
+                    {% csrf_token %}
                     <div class="row g-3">
                         <div class="col-md-12">
                             <div class="form-floating">

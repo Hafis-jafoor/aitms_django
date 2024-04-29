@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect 
 from django.http import HttpResponse
+from .models import Enquiry_contacts, Vistor_contacts, Parscore
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
-def index(request):
-    return render(request, 'index.html')
+# def index(request):
+#     return render(request, 'index.html')
 
 def about_overview(request):
     return render(request, 'about_overview.html')
@@ -89,8 +93,126 @@ def part_time_opportunities(request):
 def testimonials(request):
     return render(request, 'testimonials.html')
 
+# def contact_us(request):
+#     return render(request, 'contact_us.html')
+
+# def parscore(request):
+#     return render(request, 'parscore.html')
+
 def contact_us(request):
+    if request.method == 'POST':
+        contact_name = request.POST.get('name2')
+        contact_email = request.POST.get('email2')
+        contact_phone = request.POST.get('phone2')
+        contact_subject = request.POST.get('subject2')
+        contact_message = request.POST.get('message2')
+
+        # Check if the email already exists
+        if Enquiry_contacts.objects.filter(contact_email=contact_email).exists():
+            messages.error(request, 'Email already exists(mail has been registered already,use another valid email).')
+            return render(request, 'contact_us.html', {'name': contact_name, 'email': contact_email, 'phone': contact_phone, 'subject': contact_subject, 'message': contact_message})
+
+        # Create and save the contact object
+        contact = Enquiry_contacts.objects.create(
+            contact_name=contact_name,
+            contact_email=contact_email,
+            contact_phone=contact_phone,
+            contact_subject=contact_subject,
+            contact_message=contact_message,
+        )
+
+        # Send email
+        send_mail(
+            'Enquiry Contact Form Submission of Aitms',
+            f'Name: {contact_name}\nEmail: {contact_email}\nPhone: {contact_phone}\nSubject: {contact_subject}\nMessage: {contact_message}',
+            contact_email,  # From email (user's email address)
+            # settings.EMAIL_HOST_USER,  # From email (configured in settings.py)
+            ['sticknobillshafis@gmail.com'],  # To email
+            fail_silently=False,
+        )
+
+        messages.success(request, 'Your message has been stored successfully .')
+        return redirect('contact_us')
     return render(request, 'contact_us.html')
 
+def index_contact(request):
+    if request.method == 'POST':
+        contact_name = request.POST.get('name')
+        contact_email = request.POST.get('email')
+        contact_phone = request.POST.get('phone')
+        contact_subject = request.POST.get('subject')
+        contact_message = request.POST.get('message')
+
+        # Check if the email already exists
+        # if Vistor_contacts.objects.filter(contact_email=contact_email).exists():
+        #     messages.error(request, 'Email already exists(mail has been registered already,use another valid email).')
+        #     return render(request, 'index.html', {'name': contact_name, 'email': contact_email, 'phone': contact_phone, 'subject': contact_subject, 'message': contact_message})
+
+        # Create and save the contact object
+        contact = Vistor_contacts.objects.create(
+            contact_name=contact_name,
+            contact_email=contact_email,
+            contact_phone=contact_phone,
+            contact_subject=contact_subject,
+            contact_message=contact_message,
+        )
+
+        # Send email
+        send_mail(
+            'Vistor Contact Form Submission of Aitms',
+            f'Name: {contact_name}\nEmail: {contact_email}\nPhone: {contact_phone}\nSubject: {contact_subject}\nMessage: {contact_message}',
+            contact_email,  # From email (user's email address)
+            # settings.EMAIL_HOST_USER,  # From email (configured in settings.py)
+            ['sticknobillshafis@gmail.com'],  # To email
+            fail_silently=False,
+        )
+
+        messages.success(request, 'Your message has been stored successfully|Click the Close Button .')
+        return redirect('home')
+    return render(request, 'index.html')
+
 def parscore(request):
+    if request.method == 'POST':
+        Parscore_student_name = request.POST.get('name3')
+        Parscore_school_name = request.POST.get('sname')
+        Parscore_sector = request.POST.get('select1')
+        Parscore_phone = request.POST.get('phone3')
+        Parscore_email = request.POST.get('email3')
+        Parscore_location = request.POST.get('select2')
+        Parscore_career = request.POST.get('select3')
+        Parscore_career_other = request.POST.get('otherInput')
+
+        # Check if the email already exists
+        if Parscore.objects.filter(Parscore_email=Parscore_email).exists():
+            messages.error(request, 'Email already exists(mail has been registered already,use another valid email).')
+            return render(request, 'parscore.html', {'name3': Parscore_student_name, 'sname': Parscore_school_name, 
+                                                     'select1': Parscore_sector, 'phone3': Parscore_phone, 'email3': Parscore_email, 
+                                                     'select2': Parscore_location, 'select3': Parscore_career, 
+                                                     'otherInput': Parscore_career_other})
+
+        # Create and save the contact object
+        parscore = Parscore.objects.create(
+            Parscore_student_name=Parscore_student_name,
+            Parscore_school_name=Parscore_school_name,
+            Parscore_sector=Parscore_sector,
+            Parscore_phone=Parscore_phone,
+            Parscore_email=Parscore_email,
+            Parscore_location=Parscore_location,
+            Parscore_career=Parscore_career,
+            Parscore_career_other=Parscore_career_other,
+        )
+
+        # Send email
+        send_mail(
+            'Parscore scholorship Form Submission of Aitms',
+            f'StudentName: {Parscore_student_name}\nSchoolName: {Parscore_school_name}\nSector: {Parscore_sector}\nPhone: {Parscore_phone}\nEmail: {Parscore_email}\nLocation: {Parscore_location}\ncareer: {Parscore_career}\ncareeer_other: {Parscore_career_other}',
+            Parscore_email,  # From email (user's email address)
+            # settings.EMAIL_HOST_USER,  # From email (configured in settings.py)
+            ['sticknobillshafis@gmail.com'],  # To email
+            fail_silently=False,
+        )
+
+        messages.success(request, 'Your message has been stored successfully .')
+        return redirect('parscore')
     return render(request, 'parscore.html')
+

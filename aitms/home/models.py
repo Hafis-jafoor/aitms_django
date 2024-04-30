@@ -24,3 +24,10 @@ class Parscore(models.Model):
     Parscore_location = models.CharField(max_length=60)
     Parscore_career = models.CharField(max_length=80)
     Parscore_career_other = models.CharField(max_length=80)
+
+class Admissioncouncellor(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(unique = True)
+    phone = models.CharField(max_length=10)
+    message = models.CharField(max_length=100)
+    resume = models.FileField(upload_to='resumes/')

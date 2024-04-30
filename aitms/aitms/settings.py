@@ -133,3 +133,7 @@ EMAIL_PORT = 587  # or your SMTP port
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'sticknobillshafis@gmail.com'
 EMAIL_HOST_PASSWORD = 'voyp trhk rhox oekl'
+
+# MEDIA_ROOT = BASE_DIR / 'uploads'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

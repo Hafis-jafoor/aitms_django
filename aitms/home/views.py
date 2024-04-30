@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect 
 from django.http import HttpResponse
-from .models import Enquiry_contacts, Vistor_contacts, Parscore
+from .models import Enquiry_contacts, Vistor_contacts, Parscore, Admissioncouncellor
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
@@ -81,8 +81,8 @@ def placement_training(request):
 def job_fairs_events(request):
     return render(request, 'job_fairs_&_events.html')
 
-def current_offers(request):
-    return render(request, 'current_offers.html')
+# def current_offers(request):
+#     return render(request, 'current_offers.html')
 
 def internship_opportunities(request):
     return render(request, 'internship_opportunities.html')
@@ -215,4 +215,42 @@ def parscore(request):
         messages.success(request, 'Your message has been stored successfully .')
         return redirect('parscore')
     return render(request, 'parscore.html')
+
+def Admission_councellor(request):
+    if request.method == 'POST':
+        name = request.POST.get('name1')
+        email = request.POST.get('email1')
+        phone = request.POST.get('phone1')
+        message = request.POST.get('message1')
+        resume = request.FILES.get('resume1')  # Use request.FILES to get the uploaded file
+
+        # Check if the email already exists
+        if Admissioncouncellor.objects.filter(email=email).exists():
+            messages.error(request, 'Email already exists (mail has been registered already, use another valid email).')
+            return render(request, 'current_offers.html', {'name1': name, 'email1': email, 
+                                                            'phone1': phone, 'message1': message, 'resume1': resume})
+
+        # Create and save the contact object
+        Admissioncouncellors = Admissioncouncellor.objects.create(
+            name=name,
+            email=email,
+            phone=phone,
+            message=message,
+            resume=resume,
+        )
+
+        # Send email
+        send_mail(
+            'Admission Councellors Form Submission of Aitms',
+            f'name: {name}\nemail: {email}\nphone: {phone}\nmessage: {message}\nresume: {resume}',
+            email,  # From email (user's email address)
+            # settings.EMAIL_HOST_USER,  # From email (configured in settings.py)
+            ['sticknobillshafis@gmail.com'],  # To email
+            fail_silently=False,
+        )
+
+        messages.success(request, 'Your message has been stored successfully.')
+        return redirect('current_offers')
+    return render(request, 'current_offers.html')
+
 

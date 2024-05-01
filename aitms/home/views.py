@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from .models import Enquiry_contacts, Vistor_contacts, Parscore, Admissioncouncellor
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 from django.conf import settings
 
 # Create your views here.
@@ -81,8 +83,8 @@ def placement_training(request):
 def job_fairs_events(request):
     return render(request, 'job_fairs_&_events.html')
 
-# def current_offers(request):
-#     return render(request, 'current_offers.html')
+def current_offers(request):
+    return render(request, 'current_offers.html')
 
 def internship_opportunities(request):
     return render(request, 'internship_opportunities.html')
@@ -98,6 +100,141 @@ def testimonials(request):
 
 # def parscore(request):
 #     return render(request, 'parscore.html')
+
+
+# def index(request):
+#     if request.method == 'POST':
+#         if 'contact_form' in request.POST:
+#             # Process contact form
+#             contact_name = request.POST.get('name')
+#             contact_email = request.POST.get('email')
+#             contact_phone = request.POST.get('phone')
+#             contact_subject = request.POST.get('subject')
+#             contact_message = request.POST.get('message')
+
+#             # Create and save the contact object
+#             contact = Vistor_contacts.objects.create(
+#                 contact_name=contact_name,
+#                 contact_email=contact_email,
+#                 contact_phone=contact_phone,
+#                 contact_subject=contact_subject,
+#                 contact_message=contact_message,
+#             )
+
+#             # Send email
+#             send_mail(
+#                 'Visitor Contact Form Submission of Aitms',
+#                 f'Name: {contact_name}\nEmail: {contact_email}\nPhone: {contact_phone}\nSubject: {contact_subject}\nMessage: {contact_message}',
+#                 contact_email,
+#                 ['sticknobillshafis@gmail.com'],
+#                 fail_silently=False,
+#             )
+
+#             messages.success(request, 'Your message has been stored successfully|Click the Close Button .', extra_tags='contact_form')
+#             return redirect('home')
+#         elif 'counselor_form' in request.POST:
+#             # Process counselor form
+#             name = request.POST.get('name1')
+#             email = request.POST.get('email1')
+#             phone = request.POST.get('phone1')
+#             message = request.POST.get('message1')
+#             resume = request.FILES.get('resume1')
+
+#             # Check if the email already exists
+#             if Admissioncouncellor.objects.filter(email=email).exists():
+#                 messages.error(request, 'Email Already Exists (Mail has been Registered Already, Use Another Valid Email).', extra_tags='counselor_form')
+#                 return render(request, 'index.html', {'name1': name, 'email1': email, 
+#                                                             'phone1': phone, 'message1': message, 'resume1': resume})
+
+#             # Create and save the counselor object
+#             Admissioncouncellors = Admissioncouncellor.objects.create(
+#                 name=name,
+#                 email=email,
+#                 phone=phone,
+#                 message=message,
+#                 resume=resume,
+#             )
+
+#             # Send email
+#             send_mail(
+#                 'Admission Counselors Form Submission of Aitms',
+#                 f'Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}\nResume: {resume}',
+#                 email,
+#                 ['sticknobillshafis@gmail.com'],
+#                 fail_silently=False,
+#             )
+
+#             messages.success(request, 'Your message has been stored successfully.', extra_tags='counselor_form')
+#             return redirect('home')
+#     return render(request, 'index.html')
+
+def index(request):
+    if request.method == 'POST':
+        if 'contact_form' in request.POST:
+            # Process contact form
+            contact_name = request.POST.get('name')
+            contact_email = request.POST.get('email')
+            contact_phone = request.POST.get('phone')
+            contact_subject = request.POST.get('subject')
+            contact_message = request.POST.get('message')
+
+            # Create and save the contact object
+            contact = Vistor_contacts.objects.create(
+                contact_name=contact_name,
+                contact_email=contact_email,
+                contact_phone=contact_phone,
+                contact_subject=contact_subject,
+                contact_message=contact_message,
+            )
+
+            # Send email
+            send_mail(
+                'Visitor Contact Form Submission of Aitms',
+                f'Name: {contact_name}\nEmail: {contact_email}\nPhone: {contact_phone}\nSubject: {contact_subject}\nMessage: {contact_message}',
+                contact_email,
+                ['sticknobillshafis@gmail.com'],
+                fail_silently=False,
+            )
+
+            messages.success(request, 'Your message has been stored successfully|Click the Close Button .', extra_tags='contact_form')
+            return redirect('home')
+
+        elif 'counselor_form' in request.POST:
+            # Process counselor form
+            name = request.POST.get('name1')
+            email = request.POST.get('email1')
+            phone = request.POST.get('phone1')
+            message = request.POST.get('message1')
+            resume = request.FILES.get('resume1')
+
+            # Check if the email already exists
+            if Admissioncouncellor.objects.filter(email=email).exists():
+                messages.error(request, 'Email Already Exists (Mail has been Registered Already, Use Another Valid Email).', extra_tags='counselor_form')
+                return HttpResponseRedirect(reverse('home') + '?section=contact1')  # Redirect to the homepage with section parameter
+
+            # Create and save the counselor object
+            Admissioncouncellors = Admissioncouncellor.objects.create(
+                name=name,
+                email=email,
+                phone=phone,
+                message=message,
+                resume=resume,
+            )
+
+            # Send email
+            send_mail(
+                'Admission Counselors Form Submission of Aitms',
+                f'Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}\nResume: {resume}',
+                email,
+                ['sticknobillshafis@gmail.com'],
+                fail_silently=False,
+            )
+
+            messages.success(request, 'Your message has been stored successfully.', extra_tags='counselor_form')
+            return HttpResponseRedirect(reverse('home') + '?section=contact1')  # Redirect to the homepage with section parameter
+
+    return render(request, 'index.html')
+
 
 def contact_us(request):
     if request.method == 'POST':
@@ -134,42 +271,6 @@ def contact_us(request):
         messages.success(request, 'Your message has been stored successfully .')
         return redirect('contact_us')
     return render(request, 'contact_us.html')
-
-def index_contact(request):
-    if request.method == 'POST':
-        contact_name = request.POST.get('name')
-        contact_email = request.POST.get('email')
-        contact_phone = request.POST.get('phone')
-        contact_subject = request.POST.get('subject')
-        contact_message = request.POST.get('message')
-
-        # Check if the email already exists
-        # if Vistor_contacts.objects.filter(contact_email=contact_email).exists():
-        #     messages.error(request, 'Email already exists(mail has been registered already,use another valid email).')
-        #     return render(request, 'index.html', {'name': contact_name, 'email': contact_email, 'phone': contact_phone, 'subject': contact_subject, 'message': contact_message})
-
-        # Create and save the contact object
-        contact = Vistor_contacts.objects.create(
-            contact_name=contact_name,
-            contact_email=contact_email,
-            contact_phone=contact_phone,
-            contact_subject=contact_subject,
-            contact_message=contact_message,
-        )
-
-        # Send email
-        send_mail(
-            'Vistor Contact Form Submission of Aitms',
-            f'Name: {contact_name}\nEmail: {contact_email}\nPhone: {contact_phone}\nSubject: {contact_subject}\nMessage: {contact_message}',
-            contact_email,  # From email (user's email address)
-            # settings.EMAIL_HOST_USER,  # From email (configured in settings.py)
-            ['sticknobillshafis@gmail.com'],  # To email
-            fail_silently=False,
-        )
-
-        messages.success(request, 'Your message has been stored successfully|Click the Close Button .')
-        return redirect('home')
-    return render(request, 'index.html')
 
 def parscore(request):
     if request.method == 'POST':
@@ -216,41 +317,42 @@ def parscore(request):
         return redirect('parscore')
     return render(request, 'parscore.html')
 
-def Admission_councellor(request):
-    if request.method == 'POST':
-        name = request.POST.get('name1')
-        email = request.POST.get('email1')
-        phone = request.POST.get('phone1')
-        message = request.POST.get('message1')
-        resume = request.FILES.get('resume1')  # Use request.FILES to get the uploaded file
+# def Admission_councellor(request):
+#     if request.method == 'POST':
+#         name = request.POST.get('name1')
+#         email = request.POST.get('email1')
+#         phone = request.POST.get('phone1')
+#         message = request.POST.get('message1')
+#         resume = request.FILES.get('resume1')  # Use request.FILES to get the uploaded file
 
-        # Check if the email already exists
-        if Admissioncouncellor.objects.filter(email=email).exists():
-            messages.error(request, 'Email already exists (mail has been registered already, use another valid email).')
-            return render(request, 'current_offers.html', {'name1': name, 'email1': email, 
-                                                            'phone1': phone, 'message1': message, 'resume1': resume})
+#         # Check if the email already exists
+#         if Admissioncouncellor.objects.filter(email=email).exists():
+#             messages.error(request, 'Email already exists (mail has been registered already, use another valid email).')
+#             return render(request, 'current_offers.html', {'name1': name, 'email1': email, 
+#                                                             'phone1': phone, 'message1': message, 'resume1': resume})
 
-        # Create and save the contact object
-        Admissioncouncellors = Admissioncouncellor.objects.create(
-            name=name,
-            email=email,
-            phone=phone,
-            message=message,
-            resume=resume,
-        )
+#         # Create and save the contact object
+#         Admissioncouncellors = Admissioncouncellor.objects.create(
+#             name=name,
+#             email=email,
+#             phone=phone,
+#             message=message,
+#             resume=resume,
+#         )
 
-        # Send email
-        send_mail(
-            'Admission Councellors Form Submission of Aitms',
-            f'name: {name}\nemail: {email}\nphone: {phone}\nmessage: {message}\nresume: {resume}',
-            email,  # From email (user's email address)
-            # settings.EMAIL_HOST_USER,  # From email (configured in settings.py)
-            ['sticknobillshafis@gmail.com'],  # To email
-            fail_silently=False,
-        )
+#         # Send email
+#         send_mail(
+#             'Admission Councellors Form Submission of Aitms',
+#             f'name: {name}\nemail: {email}\nphone: {phone}\nmessage: {message}\nresume: {resume}',
+#             email,  # From email (user's email address)
+#             # settings.EMAIL_HOST_USER,  # From email (configured in settings.py)
+#             ['sticknobillshafis@gmail.com'],  # To email
+#             fail_silently=False,
+#         )
 
-        messages.success(request, 'Your message has been stored successfully.')
-        return redirect('current_offers')
-    return render(request, 'current_offers.html')
+#         messages.success(request, 'Your message has been stored successfully.')
+#         return redirect('current_offers')
+#     return render(request, 'current_offers.html')
+
 
 

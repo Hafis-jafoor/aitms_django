@@ -130,7 +130,7 @@ def testimonials(request):
 #                 fail_silently=False,
 #             )
 
-#             messages.success(request, 'Your message has been stored successfully|Click the Close Button .', extra_tags='contact_form')
+#             messages.success(request, 'Your Message has been Stored Successfully|Click the Close Button .', extra_tags='contact_form')
 #             return redirect('home')
 #         elif 'counselor_form' in request.POST:
 #             # Process counselor form
@@ -164,7 +164,7 @@ def testimonials(request):
 #                 fail_silently=False,
 #             )
 
-#             messages.success(request, 'Your message has been stored successfully.', extra_tags='counselor_form')
+#             messages.success(request, 'Your Message has been Stored Successfully.', extra_tags='counselor_form')
 #             return redirect('home')
 #     return render(request, 'index.html')
 
@@ -196,7 +196,7 @@ def index(request):
                 fail_silently=False,
             )
 
-            messages.success(request, 'Your message has been stored successfully|Click the Close Button .', extra_tags='contact_form')
+            messages.success(request, 'Your Message has been Stored Successfully|Click the Close Button .', extra_tags='contact_form')
             return redirect('home')
 
         elif 'counselor_form' in request.POST:
@@ -210,7 +210,7 @@ def index(request):
             # Check if the email already exists
             if Admissioncouncellor.objects.filter(email=email).exists():
                 messages.error(request, 'Email Already Exists (Mail has been Registered Already, Use Another Valid Email).', extra_tags='counselor_form')
-                return HttpResponseRedirect(reverse('home') + '?section=contact1')  # Redirect to the homepage with section parameter
+                return HttpResponseRedirect(reverse('home') + '?section=contacts1')  # Redirect to the homepage with section parameter
 
             # Create and save the counselor object
             Admissioncouncellors = Admissioncouncellor.objects.create(
@@ -230,8 +230,8 @@ def index(request):
                 fail_silently=False,
             )
 
-            messages.success(request, 'Your message has been stored successfully.', extra_tags='counselor_form')
-            return HttpResponseRedirect(reverse('home') + '?section=contact1')  # Redirect to the homepage with section parameter
+            messages.success(request, 'Your Message has been Stored Successfully.', extra_tags='counselor_form')
+            return HttpResponseRedirect(reverse('home') + '?section=contacts1')  # Redirect to the homepage with section parameter
 
     return render(request, 'index.html')
 
@@ -246,7 +246,7 @@ def contact_us(request):
 
         # Check if the email already exists
         if Enquiry_contacts.objects.filter(contact_email=contact_email).exists():
-            messages.error(request, 'Email already exists(mail has been registered already,use another valid email).')
+            messages.error(request, 'Email Already Exists (Mail has been Registered Already, Use Another Valid Email).')
             return render(request, 'contact_us.html', {'name': contact_name, 'email': contact_email, 'phone': contact_phone, 'subject': contact_subject, 'message': contact_message})
 
         # Create and save the contact object
@@ -268,7 +268,7 @@ def contact_us(request):
             fail_silently=False,
         )
 
-        messages.success(request, 'Your message has been stored successfully .')
+        messages.success(request, 'Your Message has been Stored Successfully.')
         return redirect('contact_us')
     return render(request, 'contact_us.html')
 
@@ -285,7 +285,7 @@ def parscore(request):
 
         # Check if the email already exists
         if Parscore.objects.filter(Parscore_email=Parscore_email).exists():
-            messages.error(request, 'Email already exists(mail has been registered already,use another valid email).')
+            messages.error(request, 'Email Already Exists (Mail has been Registered Already, Use Another Valid Email).')
             return render(request, 'parscore.html', {'name3': Parscore_student_name, 'sname': Parscore_school_name, 
                                                      'select1': Parscore_sector, 'phone3': Parscore_phone, 'email3': Parscore_email, 
                                                      'select2': Parscore_location, 'select3': Parscore_career, 
@@ -313,7 +313,7 @@ def parscore(request):
             fail_silently=False,
         )
 
-        messages.success(request, 'Your message has been stored successfully .')
+        messages.success(request, 'Your Message has been Stored Successfully.')
         return redirect('parscore')
     return render(request, 'parscore.html')
 
@@ -327,7 +327,7 @@ def parscore(request):
 
 #         # Check if the email already exists
 #         if Admissioncouncellor.objects.filter(email=email).exists():
-#             messages.error(request, 'Email already exists (mail has been registered already, use another valid email).')
+#             messages.error(request, 'Email Already Exists (Mail has been Registered Already, Use Another Valid Email).')
 #             return render(request, 'current_offers.html', {'name1': name, 'email1': email, 
 #                                                             'phone1': phone, 'message1': message, 'resume1': resume})
 
@@ -350,7 +350,7 @@ def parscore(request):
 #             fail_silently=False,
 #         )
 
-#         messages.success(request, 'Your message has been stored successfully.')
+#         messages.success(request, 'Your Message has been Stored Successfully.')
 #         return redirect('current_offers')
 #     return render(request, 'current_offers.html')
 

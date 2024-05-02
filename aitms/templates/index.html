@@ -718,48 +718,49 @@
             </div>
           </form>
           <script>
+            document.getElementById('contactForm1').addEventListener('submit', function(event) {
+              var nameInput = document.getElementById('name1').value.trim();
+              var emailInput = document.getElementById('email1').value.trim();
+              var phoneInput = document.getElementById('phone1').value.trim();
+              var messageInput = document.getElementById('message1').value.trim();
+          
+              var nameRegex = /^[a-zA-Z ]+$/;
+              var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              var phoneRegex = /^[0-9]{10}$/;
+          
+              var valid = true;
+          
+              if (!nameRegex.test(nameInput)) {
+                document.getElementById('name-error1').style.display = 'block';
+                valid = false;
+              } else {
+                document.getElementById('name-error1').style.display = 'none';
+              }
+          
+              if (!emailRegex.test(emailInput)) {
+                document.getElementById('email-error1').style.display = 'block';
+                valid = false;
+              } else {
+                document.getElementById('email-error1').style.display = 'none';
+              }
+          
+              if (!phoneRegex.test(phoneInput)) {
+                document.getElementById('phone-error1').style.display = 'block';
+                valid = false;
+              } else {
+                document.getElementById('phone-error1').style.display = 'none';
+              }
+          
+              if (!valid) {
+                event.preventDefault(); // Prevent form submission
+              }
+            });
+
             document.addEventListener('DOMContentLoaded', function() {
-              document.getElementById('contactForm1').addEventListener('submit', function(event) {
-                var nameInput = document.getElementById('name1').value.trim();
-                var emailInput = document.getElementById('email1').value.trim();
-                var phoneInput = document.getElementById('phone1').value.trim();
-                var messageInput = document.getElementById('message1').value.trim();
-          
-                var nameRegex = /^[a-zA-Z ]+$/;
-                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                var phoneRegex = /^[0-9]{10}$/;
-          
-                var valid = true;
-          
-                if (!nameRegex.test(nameInput)) {
-                  document.getElementById('name-error1').style.display = 'block';
-                  valid = false;
-                } else {
-                  document.getElementById('name-error1').style.display = 'none';
-                }
-          
-                if (!emailRegex.test(emailInput)) {
-                  document.getElementById('email-error1').style.display = 'block';
-                  valid = false;
-                } else {
-                  document.getElementById('email-error1').style.display = 'none';
-                }
-          
-                if (!phoneRegex.test(phoneInput)) {
-                  document.getElementById('phone-error1').style.display = 'block';
-                  valid = false;
-                } else {
-                  document.getElementById('phone-error1').style.display = 'none';
-                }
-          
-                if (!valid) {
-                  event.preventDefault(); // Prevent form submission
-                }
-              });
-          
               var urlParams = new URLSearchParams(window.location.search);
               var section = urlParams.get('section');
-              if (section === 'contact1') {
+              
+              if (section === 'contacts1') {
                 var target = document.getElementById('contacts1');
                 if (target) {
                   target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -767,7 +768,6 @@
               }
             });
           </script>
-          
         </div>
       </div>
     </div>
